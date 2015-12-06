@@ -5,7 +5,7 @@ public class Starter {
 		// TODO Auto-generated method stub
 
 		
-		Farid ist der Banger. Nicht.
+		Wir haben es geschafft Bruder, nach nur 3h oder so!
 	}
 
 }

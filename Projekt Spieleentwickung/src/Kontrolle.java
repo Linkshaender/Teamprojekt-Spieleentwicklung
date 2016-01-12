@@ -10,6 +10,7 @@ import org.newdawn.slick.geom.Shape;
 public class Kontrolle extends BasicGame{
 
 	private Shape hitboxMaus;
+	private boolean spielGestartet = false;
 
 	private Gui gui;
 
@@ -64,8 +65,9 @@ public class Kontrolle extends BasicGame{
 		hitboxMaus.setCenterX(container.getInput().getMouseX());
 		hitboxMaus.setCenterY(container.getInput().getMouseY());
 
-		if(gui.update(container, delta, hitboxMaus) == 1){
+		if(gui.update(container, delta, hitboxMaus) == 1 && !spielGestartet){
 			spielStarten();
+			spielGestartet = true;
 		}
 
 

@@ -16,15 +16,15 @@ public class Gui {
 	private int hoeheButton = 50;
 	private int breiteButton = 120;
 
-	Image[] bild;
+	private Image[] bild;
 
-	Image hintergrundbild;
+	private Image hintergrundbild;
 	private int hoeheBild;
 
 	private Sound hintergrundmusik;
 	private Sound click;
 
-	Shape[] buttons;
+	private Shape[] buttons;
 
 
 	public void render(GameContainer container, Graphics g) throws SlickException {
@@ -62,7 +62,7 @@ public class Gui {
 		hintergrundbild = hintergrundbild.getScaledCopy((int)((int) hoeheBild/0.76), hoeheBild ); //breite ergibt sich aus dem Seitenverhältniss
 
 		hintergrundmusik = new Sound("res/hintergrundmusik.ogg");
-		hintergrundmusik.play(-3, 2);
+		hintergrundmusik.play();
 		click = new Sound("res/klick.wav");
 
 
@@ -77,7 +77,7 @@ public class Gui {
 
 		bild = new Image[buttons.length];
 		bild[0] = new Image("res/start.png");
-		bild[1] = new Image("res/ende.png");   //hatte kein Exit Button
+		bild[1] = new Image("res/ende.png");   
 		bild[2] = new Image("res/stop.png");
 
 
@@ -91,18 +91,18 @@ public class Gui {
 			if(hitboxMaus.intersects(buttons[i]) && container.getInput().isMouseButtonDown(0)){
 
 				if(i == 0 && status == 0){
-					click.play(-4, 2);
+					click.play();
 					hintergrundmusik.stop();
 					status = 1;
 				}
 				if(i == 1 && status == 0){
-					click.play(-4, 2);
+					click.play();
 
 					container.exit();
 				}
 				if(i == 2 && status == 1){
-					click.play(-4, 2);
-					hintergrundmusik.play(-3, 2);
+					click.play();
+					hintergrundmusik.play();
 
 					status = 0;
 
@@ -113,7 +113,7 @@ public class Gui {
 		return status;
 	}
 
-	
+
 
 
 

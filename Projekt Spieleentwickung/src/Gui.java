@@ -113,65 +113,7 @@ public class Gui {
 		return status;
 	}
 
-
-	public int getX() {
-		return xButton;
-	}
-
-
-	public void setX(int x) {
-		this.xButton = x;
-	}
-
-
-	public int getHoehe() {
-		return hoeheButton;
-	}
-
-
-	public void setHoehe(int hoehe) {
-		this.hoeheButton = hoehe;
-	}
-
-
-	public int getBreite() {
-		return breiteButton;
-	}
-
-
-	public void setBreite(int breite) {
-		this.breiteButton = breite;
-	}
-
-
-	public Shape[] getMainmenu() {
-		return buttons;
-	}
-
-
-	public void setMainmenu(Shape[] mainmenu) {
-		this.buttons = mainmenu;
-	}
-
-
-	public int getStatus() {
-		return status;
-	}
-
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
-
-	public Shape[] getButtons() {
-		return buttons;
-	}
-
-
-	public void setButtons(Shape[] buttons) {
-		this.buttons = buttons;
-	}
+	
 
 
 

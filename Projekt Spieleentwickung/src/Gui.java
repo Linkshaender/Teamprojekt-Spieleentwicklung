@@ -15,7 +15,7 @@ public class Gui {
 	private int xButton;
 	private int hoeheButton = 50;
 	private int breiteButton = 120;
-
+	
 	private Image[] bild;
 
 	private Image hintergrundbild;
@@ -23,7 +23,6 @@ public class Gui {
 
 	private Sound hintergrundmusik;
 	private Sound click;
-
 	private Shape[] buttons;
 
 
@@ -57,7 +56,7 @@ public class Gui {
 		hoeheBild = container.getHeight();
 		xButton = container.getWidth() / 2 - breiteButton/2;
 
-
+		
 		hintergrundbild = new Image("res/hintergrundbild.png");
 		hintergrundbild = hintergrundbild.getScaledCopy((int)((int) hoeheBild/0.76), hoeheBild ); //breite ergibt sich aus dem Seitenverhältniss
 
@@ -90,9 +89,11 @@ public class Gui {
 
 			if(hitboxMaus.intersects(buttons[i]) && container.getInput().isMouseButtonDown(0)){
 
+				
 				if(i == 0 && status == 0){
 					click.play();
 					hintergrundmusik.stop();
+					Kontrolle.spielZurueck = false;
 					status = 1;
 				}
 				if(i == 1 && status == 0){
@@ -102,8 +103,9 @@ public class Gui {
 				}
 				if(i == 2 && status == 1){
 					click.play();
+					
 					hintergrundmusik.play();
-
+					Kontrolle.spielZurueck = true;
 					status = 0;
 
 				}	

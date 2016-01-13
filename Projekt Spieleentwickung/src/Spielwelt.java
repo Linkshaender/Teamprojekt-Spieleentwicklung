@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.tiled.TiledMap;
@@ -8,13 +9,15 @@ import org.newdawn.slick.tiled.TiledMap;
 public class Spielwelt extends TiledMap{
 
 	private ArrayList<Rectangle> movementBlockers = new ArrayList<Rectangle>();
-	
+
 	
 	public Spielwelt(String path) throws SlickException {
 		super(path);
+		
+		
 	}
 	
-	public void init() {
+	public void init() throws SlickException {
 		addMovementBlockers();
 		
 	}
@@ -38,5 +41,4 @@ public class Spielwelt extends TiledMap{
 	public ArrayList<Rectangle> getMovementBlockers() {
 		return movementBlockers;
 	}
-
 }

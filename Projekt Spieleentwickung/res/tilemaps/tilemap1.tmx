@@ -5,6 +5,11 @@
  </tileset>
  <tileset firstgid="1025" name="blocked" tilewidth="32" tileheight="32" tilecount="4" columns="2">
   <image source="../tilesets/blocked.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="movementBlocker" value="true"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="blocked" width="30" height="25" opacity="0.5">
   <data encoding="base64" compression="gzip">

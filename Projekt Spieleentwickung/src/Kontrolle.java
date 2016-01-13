@@ -6,8 +6,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.command.InputProvider;
 import org.newdawn.slick.geom.Circle;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
-import org.newdawn.slick.tiled.TiledMap;
 
 public class Kontrolle extends BasicGame{
 
@@ -20,7 +20,7 @@ public class Kontrolle extends BasicGame{
 	private Gui gui;
 	private InputHandler inputHandler;
 	
-	private TiledMap startWelt = null;
+	private Spielwelt startWelt = null;
 	private Held held;
 
 	public Kontrolle(String title) {
@@ -43,7 +43,8 @@ public class Kontrolle extends BasicGame{
 
 	public void spielStarten(){
 		try {
-			startWelt = new TiledMap("/res/tilemaps/tilemap1.tmx");
+			startWelt = new Spielwelt("/res/tilemaps/tilemap1.tmx");
+			startWelt.init();
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
@@ -78,7 +79,7 @@ public class Kontrolle extends BasicGame{
 		inputHandler.init();
 		container.getInput().enableKeyRepeat(); //Taste gedrückt halten zum bewegen
 		
-		held = new Held();
+		held = new Held(this);
 		held.setPlaceHolderShape(new Circle(0, 0, 10));
 		inputHandler.setHeld(held);
 
@@ -100,6 +101,16 @@ public class Kontrolle extends BasicGame{
 		}
 
 
+	}
+	
+	public boolean checkCollision(Shape shape) {
+		if(!spielGestartet)
+			return false;
+		for(Rectangle movementBlocker : startWelt.getMovementBlockers()) {
+			if(shape.intersects(movementBlocker) || shape.contains(movementBlocker))
+				return true;
+		}
+		return false;
 	}
 
 }

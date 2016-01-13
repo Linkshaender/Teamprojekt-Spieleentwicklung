@@ -4,15 +4,24 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.command.InputProvider;
 import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Shape;
+import org.newdawn.slick.tiled.TiledMap;
 
 public class Kontrolle extends BasicGame{
 
+	
+	private AppGameContainer spiel = null;
+	
 	private Shape hitboxMaus;
 	private boolean spielGestartet = false;
 
 	private Gui gui;
+	private InputHandler inputHandler;
+	
+	private TiledMap startWelt = null;
+	private Held held;
 
 	public Kontrolle(String title) {
 		super(title);
@@ -21,8 +30,8 @@ public class Kontrolle extends BasicGame{
 
 	public void spielErstellen(){
 		try {
-			AppGameContainer spiel = new AppGameContainer(new Kontrolle("Test"));
-			spiel.setDisplayMode(1000, 500, false);//Breite,Hoehe,Fullscreen
+			spiel = new AppGameContainer(new Kontrolle("Test"));
+			spiel.setDisplayMode(1000, 800, false);//Breite,Hoehe,Fullscreen
 			spiel.setTargetFrameRate(60);
 			spiel.start();
 
@@ -33,7 +42,11 @@ public class Kontrolle extends BasicGame{
 	}
 
 	public void spielStarten(){
-
+		try {
+			startWelt = new TiledMap("/res/tilemaps/tilemap1.tmx");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -44,6 +57,10 @@ public class Kontrolle extends BasicGame{
 		g.setColor(Color.blue);
 		g.fill(hitboxMaus);
 		g.draw(hitboxMaus);
+		if(spielGestartet) {
+			startWelt.render(0, 0);
+			g.fill(held.getPlaceHolderShape());
+		}
 
 		gui.render(container, g);
 
@@ -56,6 +73,14 @@ public class Kontrolle extends BasicGame{
 
 		gui = new Gui();
 		gui.init(container);
+		
+		inputHandler = new InputHandler(new InputProvider(container.getInput()));
+		inputHandler.init();
+		container.getInput().enableKeyRepeat(); //Taste gedrückt halten zum bewegen
+		
+		held = new Held();
+		held.setPlaceHolderShape(new Circle(0, 0, 10));
+		inputHandler.setHeld(held);
 
 	}
 
@@ -68,6 +93,10 @@ public class Kontrolle extends BasicGame{
 		if(gui.update(container, delta, hitboxMaus) == 1 && !spielGestartet){
 			spielStarten();
 			spielGestartet = true;
+		}
+		
+		if(spielGestartet) {
+			inputHandler.handleInput();
 		}
 
 

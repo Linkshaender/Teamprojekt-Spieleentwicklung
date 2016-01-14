@@ -7,7 +7,6 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.command.InputProvider;
 import org.newdawn.slick.geom.Circle;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
 public class Kontrolle extends BasicGame{
@@ -62,8 +61,10 @@ public class Kontrolle extends BasicGame{
 		g.fill(hitboxMaus);
 		g.draw(hitboxMaus);
 		if(spielGestartet) {
-			startWelt.render(0, 0);
-			g.fill(held.getPlaceHolderShape());
+			startWelt.render(0, 0, 0);
+			g.fill(held.getPlaceHolderShape()); //Spielfiguren zwischen unterster und oberster Ebene (0 und 1) rendern
+			startWelt.render(0, 0, 1);
+			//g.fill(startWelt.getMovementBlockers().get(0)); //DEBUG Spielweltkollisionen
 		}
 
 		gui.render(container, g);
@@ -115,7 +116,7 @@ public class Kontrolle extends BasicGame{
 	public boolean checkCollision(Shape shape) {
 		if(!spielGestartet)
 			return false;
-		for(Rectangle movementBlocker : startWelt.getMovementBlockers()) {
+		for(Shape movementBlocker : startWelt.getMovementBlockers()) {
 			if(shape.intersects(movementBlocker) || shape.contains(movementBlocker))
 				return true;
 		}

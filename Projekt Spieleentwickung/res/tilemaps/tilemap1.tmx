@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="32" tileheight="32" nextobjectid="33">
  <tileset firstgid="1" name="terrain" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
   <image source="../tilesets/terrain.png" width="1024" height="1024"/>
  </tileset>
  <tileset firstgid="1025" name="blocked" tilewidth="32" tileheight="32" tilecount="4" columns="2">
   <image source="../tilesets/blocked.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="movementBlocker" value="true"/>
+   </properties>
+  </tile>
  </tileset>
- <layer name="blocked" width="30" height="25" opacity="0.5">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBSMgqEPGFlwY1rbS4o4rQE97UW2a7j6d6Did6DS8ygYBaNgcAMAcrY4rbgLAAA=
-  </data>
- </layer>
  <layer name="Bottom" width="30" height="25">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC1NiZGBQojNWHgA7h5O9qRTYS6zeweTfUXtJt5eW8TwY/YsPHyVCDb7wIsbefUyY+CmFcUGsvch+QLaXWuGMzW/I9irRyF5c/k0dIHtxxS8t7aUFHiz20qMuord/UwfI3sEYv4TCh5wwHWr+pZW9AJH9DqO4CwAA
@@ -21,4 +21,12 @@
    H4sIAAAAAAAAC2NgGAXUAjFAHAvEcXS2twaIa4G4jkrmEeuPOUA8F4jnUcleavuDWEBtf4x00MKIG9MStALNX4IF0xqwMdHeDkLgyADZ+2SA7KUnWDoAaRkEsKVlbGl6uNQ7xILR8noUjHQAAFUgR264CwAA
   </data>
  </layer>
+ <objectgroup name="block">
+  <object id="27" x="224" y="352" width="16" height="32"/>
+  <object id="28" x="224" y="320" width="224" height="32"/>
+  <object id="29" x="416" y="352" width="32" height="192"/>
+  <object id="30" x="224" y="512" width="192" height="32"/>
+  <object id="31" x="224" y="480" width="16" height="32"/>
+  <object id="32" x="320" y="420" width="32" height="28"/>
+ </objectgroup>
 </map>

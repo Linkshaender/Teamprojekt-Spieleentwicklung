@@ -61,10 +61,14 @@ public class Kontrolle extends BasicGame{
 		g.fill(hitboxMaus);
 		g.draw(hitboxMaus);
 		if(spielGestartet) {
-			startWelt.render(0, 0, 0);
-			g.fill(held.getPlaceHolderShape()); //Spielfiguren zwischen unterster und oberster Ebene (0 und 1) rendern
-			startWelt.render(0, 0, 1);
-			//g.fill(startWelt.getMovementBlockers().get(0)); //DEBUG Spielweltkollisionen
+			//g.translate(startWelt.getFocusX(charakter.getX()), startWelt.getFocusY(charakter.getY()));
+			startWelt.renderGroundLayers();
+			
+			g.fill(held.getPlaceHolderShape()); //Spielfiguren zwischen ground und top Ebenen laden
+			
+			startWelt.renderTopLayers();
+			startWelt.renderCollisionObjects(g); //DEBUG Spielweltkollisionen
+			//g.translate(-startWelt.getFocusX(held.getPlaceHolderShape().getX()), -startWelt.getFocusY(held.getPlaceHolderShape().getY()));
 		}
 
 		gui.render(container, g);

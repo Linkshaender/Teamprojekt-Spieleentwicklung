@@ -57,12 +57,12 @@ public class Gui {
 		xButton = container.getWidth() / 2 - breiteButton/2;
 
 		
-		hintergrundbild = new Image("res/hintergrundbild.png");
+		hintergrundbild = new Image("res/gui/images/hintergrundbild.png");
 		hintergrundbild = hintergrundbild.getScaledCopy((int)((int) hoeheBild/0.76), hoeheBild ); //breite ergibt sich aus dem Seitenverhältniss
 
-		hintergrundmusik = new Sound("res/hintergrundmusik.ogg");
+		hintergrundmusik = new Sound("res/gui/audio/hintergrundmusik.ogg");
 		hintergrundmusik.play();
-		click = new Sound("res/klick.wav");
+		click = new Sound("res/gui/audio/klick.wav");
 
 
 		Rectangle start = new Rectangle(xButton, 100, breiteButton, hoeheButton);
@@ -75,9 +75,9 @@ public class Gui {
 		buttons[2] = kreis;
 
 		bild = new Image[buttons.length];
-		bild[0] = new Image("res/start.png");
-		bild[1] = new Image("res/ende.png");   
-		bild[2] = new Image("res/stop.png");
+		bild[0] = new Image("res/gui/images/start.png");
+		bild[1] = new Image("res/gui/images/ende.png");   
+		bild[2] = new Image("res/gui/images/stop.png");
 
 
 

@@ -32,7 +32,7 @@ public class Charakter implements KeyListener{
 
 	public void init(GameContainer container) throws SlickException {
 
-		laufSprite = new SpriteSheet("sprites/lauf.png", 141, 192);
+		laufSprite = new SpriteSheet("res/character/sprites/lauf.png", 141, 192);
 		initialisiereAnimation();
 		inventar.init(container);
 		input = container.getInput();

@@ -8,7 +8,7 @@ public class Waffe {
 	
 	public Waffe() throws SlickException{
 		
-		schwert = new Image("images/Schwert.png");
+		schwert = new Image("res/character/images/Schwert.png");
 	}
 	
 	

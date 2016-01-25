@@ -37,7 +37,7 @@ public class Inventar implements KeyListener, MouseListener {
 	//Methoden
 
 	public void init(GameContainer container) throws SlickException{
-		inventar = new Image("images/Inventar.png");
+		inventar = new Image("res/character/images/Inventar.png");
 		inventarleiste = new Rectangle(x, y, 339, 63);
 
 		for(byte spalte = 0, zeile = 0; spalte < slotSpaltenAnzahl; spalte++){

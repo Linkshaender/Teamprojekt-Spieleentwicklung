@@ -44,7 +44,7 @@ public class Spielwelt extends TiledMapPlus {
 		}
 	}
 
-	public ArrayList<Shape> getMovementBlockers() {
+	public ArrayList<Shape> getCollisionObjects() {
 		return collisionObjects;
 	}
 	
@@ -94,5 +94,13 @@ public class Spielwelt extends TiledMapPlus {
 	
 	public float getFocusY(float y) {
 		return -1*y+(getHeight()*getTileHeight())/2;
+	}
+	
+	public boolean checkCollision(Shape shape) {
+		for(Shape collisionObject : getCollisionObjects()) {
+			if(shape.intersects(collisionObject))
+				return true;
+		}
+		return false;
 	}
 }

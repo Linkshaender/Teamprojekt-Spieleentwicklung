@@ -21,7 +21,6 @@ public class Kontrolle extends BasicGame{
 	private InputHandler inputHandler;
 
 	private Spielwelt startWelt = null;
-	private Held held;
 
 	private Charakter charakter = new Charakter("Hope");
 
@@ -50,6 +49,7 @@ public class Kontrolle extends BasicGame{
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
+		charakter.setSpielwelt(startWelt);
 	}
 
 	@Override
@@ -64,17 +64,19 @@ public class Kontrolle extends BasicGame{
 			//g.translate(startWelt.getFocusX(charakter.getX()), startWelt.getFocusY(charakter.getY()));
 			startWelt.renderGroundLayers();
 			
-			g.fill(held.getPlaceHolderShape()); //Spielfiguren zwischen ground und top Ebenen laden
-			
+			//g.fill(charakter.getCollisionShape()); //DEBUG Spieler-Kollisionsbox
+			if(!spielZurueck){
+				charakter.render(container, g);
+			}
 			startWelt.renderTopLayers();
-			startWelt.renderCollisionObjects(g); //DEBUG Spielweltkollisionen
+			if(!spielZurueck) {
+				charakter.zeichneNamen(g);
+			}
+			//startWelt.renderCollisionObjects(g); //DEBUG Spielweltkollisionen
 			//g.translate(-startWelt.getFocusX(held.getPlaceHolderShape().getX()), -startWelt.getFocusY(held.getPlaceHolderShape().getY()));
 		}
 
 		gui.render(container, g);
-		if(!spielZurueck){
-			charakter.render(container, g);
-		}
 	}
 
 	@Override
@@ -87,12 +89,10 @@ public class Kontrolle extends BasicGame{
 
 		inputHandler = new InputHandler(new InputProvider(container.getInput()));
 		inputHandler.init();
-		container.getInput().enableKeyRepeat(); //Taste gedrückt halten zum bewegen
+		//container.getInput().enableKeyRepeat(); 
 
-		held = new Held(this);
-		held.setPlaceHolderShape(new Circle(0, 0, 10));
 		charakter.init(container);
-		inputHandler.setHeld(held);
+		inputHandler.setCharakter(charakter);
 
 	}
 
@@ -115,16 +115,6 @@ public class Kontrolle extends BasicGame{
 		if(!spielZurueck){
 			charakter.update(container, delta);
 		}
-	}
-
-	public boolean checkCollision(Shape shape) {
-		if(!spielGestartet)
-			return false;
-		for(Shape movementBlocker : startWelt.getMovementBlockers()) {
-			if(shape.intersects(movementBlocker) || shape.contains(movementBlocker))
-				return true;
-		}
-		return false;
 	}
 
 }

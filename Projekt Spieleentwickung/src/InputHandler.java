@@ -18,7 +18,7 @@ public class InputHandler implements InputProviderListener {
 	private Command right = new BasicCommand("right");
 	private Command down = new BasicCommand("down");
 	
-	private Held held;
+	private Charakter charakter;
 	
 	
 	public InputHandler(InputProvider provider) {
@@ -56,15 +56,15 @@ public class InputHandler implements InputProviderListener {
 	
 	
 	public void handleInput() {
-		if(held == null)
+		if(charakter == null)
 			return;
 		handleMovement();
 		handleAttacks();
 	}
 	
 	private void handleAttacks() {
-		if(provider.isCommandControlDown(attack))
-			held.attack();
+		/*if(provider.isCommandControlDown(attack))
+			charakter.attack();*/
 	}
 	
 	private void handleMovement() {
@@ -78,17 +78,16 @@ public class InputHandler implements InputProviderListener {
 			yDir--;
 		if(provider.isCommandControlDown(down))
 			yDir++;
-		if(xDir != 0 || yDir != 0)
-			held.move(xDir, yDir);
+		charakter.move(xDir, yDir);
 	}
 	
 
-	public void setHeld(Held held) {
-		this.held = held;
+	public void setCharakter(Charakter charakter) {
+		this.charakter = charakter;
 	}
 	
-	public Held getHeld() {
-		return held;
+	public Charakter getCharakter() {
+		return charakter;
 	}
 
 }

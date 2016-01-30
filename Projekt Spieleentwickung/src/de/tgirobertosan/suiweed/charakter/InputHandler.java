@@ -1,3 +1,4 @@
+package de.tgirobertosan.suiweed.charakter;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.command.BasicCommand;
 import org.newdawn.slick.command.Command;

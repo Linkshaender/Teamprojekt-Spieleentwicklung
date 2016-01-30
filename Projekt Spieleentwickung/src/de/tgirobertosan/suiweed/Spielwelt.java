@@ -1,3 +1,4 @@
+package de.tgirobertosan.suiweed;
 import java.util.ArrayList;
 
 import org.newdawn.slick.Graphics;

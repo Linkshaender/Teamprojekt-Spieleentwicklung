@@ -43,10 +43,10 @@ public class SpielState extends BasicGameState{
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
 		
 		startWelt.renderGroundLayers();
+
+		charakter.render(container, g);
 		
 		startWelt.renderTopLayers();
-		
-		charakter.render(container, g);
 		
 		charakter.zeichneNamen(g);
 	}

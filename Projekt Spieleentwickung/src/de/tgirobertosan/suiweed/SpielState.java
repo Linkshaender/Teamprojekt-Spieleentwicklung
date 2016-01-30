@@ -39,7 +39,7 @@ public class SpielState extends BasicGameState {
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
 
 		inputHandler.handleInput();
-
+		startWelt.focusCharakter(container.getWidth(), container.getHeight());
 	}
 
 	@Override

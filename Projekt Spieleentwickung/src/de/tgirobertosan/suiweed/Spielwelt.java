@@ -30,6 +30,9 @@ public class Spielwelt extends TiledMapPlus {
 	
 	private int x = 0;
 	private int y = 0;
+	
+	private int transX = 0;
+	private int transY = 0;
 
 	public Spielwelt(String path) throws SlickException {
 		super(path);
@@ -56,7 +59,32 @@ public class Spielwelt extends TiledMapPlus {
 			g.fill(shape);
 	}
 	
+	/**
+	 * @author Shockper (from http://slick.ninjacave.com/forum/viewtopic.php?t=4713)
+	 * @param screenWidth Width of the Window
+	 * @param screenHeight Height of the Window
+	 */
+	public void focusCharakter(int screenWidth, int screenHeight) {
+		int mapWidth = getWidth()*getTileWidth();
+		int mapHeight = getHeight()*getTileHeight();
+		if(charakter.getX()-screenWidth/2+16 < 0)
+		          transX = 0;
+		       else if(charakter.getX()+screenWidth/2+16 > mapWidth)
+		          transX = -mapWidth+screenWidth;
+		       else
+		          transX = (int)-charakter.getX()+screenWidth/2-16;
+		 
+		       if(charakter.getY()-screenHeight/2+16 < 0)
+		          transY = 0;
+		       else if(charakter.getY()+screenHeight/2+16 > mapHeight)
+		          transY = -mapHeight+screenHeight;
+		       else
+		          transY = (int)-charakter.getY()+screenHeight/2-16;
+	}
+	
+	/**Rendert die Map komplett mit Spieler**/
 	public void renderWithObjects(GameContainer container, Graphics g) throws SlickException {
+		g.translate(transX, transY);
 		renderGroundLayers();
 		
 		if(charakter != null)
@@ -66,6 +94,7 @@ public class Spielwelt extends TiledMapPlus {
 		
 		if(charakter != null)
 			charakter.zeichneNamen(g);
+		g.translate(-transX, -transY);
 	}
 	
 	public void renderGroundLayers() {
@@ -126,14 +155,6 @@ public class Spielwelt extends TiledMapPlus {
 	
 	public void setCharakter(Charakter charakter) {
 		this.charakter = charakter;
-	}
-	
-	public float getFocusX(float x) {
-		return -1*x+(getWidth()*getTileWidth())/2;
-	}
-	
-	public float getFocusY(float y) {
-		return -1*y+(getHeight()*getTileHeight())/2;
 	}
 	
 	public ArrayList<Shape> getCollisionObjects() {

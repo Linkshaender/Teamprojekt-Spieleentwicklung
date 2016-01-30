@@ -33,8 +33,14 @@ public class Charakter {
 	private Shape collisionShape;
 
 	public Charakter(String name) {
-
+		this(name, 0, 0, null);
+	}
+	
+	public Charakter(String name, float x, float y, Spielwelt spielwelt) {
 		this.name = name;
+		this.x = x;
+		this.y = y;
+		this.spielwelt = spielwelt;
 	}
 
 	public void init(GameContainer container) throws SlickException {

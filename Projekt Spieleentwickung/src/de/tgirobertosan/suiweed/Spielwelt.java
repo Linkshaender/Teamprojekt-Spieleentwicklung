@@ -1,6 +1,7 @@
 package de.tgirobertosan.suiweed;
 import java.util.ArrayList;
 
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Shape;
@@ -12,6 +13,9 @@ import org.newdawn.slick.tiled.TileOnLayer;
 import org.newdawn.slick.tiled.TileSet;
 import org.newdawn.slick.tiled.TiledMapPlus;
 
+import de.tgirobertosan.suiweed.charakter.Charakter;
+import de.tgirobertosan.suiweed.charakter.InputHandler;
+
 
 public class Spielwelt extends TiledMapPlus {
 	
@@ -21,17 +25,19 @@ public class Spielwelt extends TiledMapPlus {
 
 	private ArrayList<Shape> collisionObjects = new ArrayList<Shape>();
 	
+	/**Der Charakter, falls er sich auf dieser Map befindet**/
+	private Charakter charakter;
+	
 	private int x = 0;
 	private int y = 0;
 
 	public Spielwelt(String path) throws SlickException {
 		super(path);
 		
-		
 	}
 	
-	public void init() throws SlickException {
-		addObjects();
+	public void init(InputHandler inputHandler) throws SlickException {
+		addObjects(inputHandler);
 		addTileCollisions();
 	}
 
@@ -44,14 +50,22 @@ public class Spielwelt extends TiledMapPlus {
 				globaltile.setAnimated(animated);
 		}
 	}
-
-	public ArrayList<Shape> getCollisionObjects() {
-		return collisionObjects;
-	}
 	
 	public void renderCollisionObjects(Graphics g) {
 		for(Shape shape : collisionObjects)
 			g.fill(shape);
+	}
+	
+	public void renderWithObjects(GameContainer container, Graphics g) throws SlickException {
+		renderGroundLayers();
+		
+		if(charakter != null)
+			charakter.render(container, g);
+		
+		renderTopLayers();
+		
+		if(charakter != null)
+			charakter.zeichneNamen(g);
 	}
 	
 	public void renderGroundLayers() {
@@ -80,13 +94,38 @@ public class Spielwelt extends TiledMapPlus {
 			}
 	}
 	
-	private void addObjects() {
+	private void addObjects(InputHandler inputHandler) {
 		for(ObjectGroup objectGroup : getObjectGroups()) {
 			if(objectGroup.name.equalsIgnoreCase(collisionObjectLayerName))
 				for(GroupObject blockObject : objectGroup.getObjects()) {
 					collisionObjects.add(blockObject.getShape());
 				}
+			else {
+				for(GroupObject groupObject : objectGroup.getObjects()) {
+					if(groupObject.type.equalsIgnoreCase("charakter")) {
+						charakter = new Charakter(groupObject.name, groupObject.x, groupObject.y, this);
+						inputHandler.setCharakter(charakter);
+					}
+				}
+			}
 		}
+	}
+	
+
+	public boolean checkCollision(Shape shape) {
+		for(Shape collisionObject : getCollisionObjects()) {
+			if(shape.intersects(collisionObject))
+				return true;
+		}
+		return false;
+	}
+	
+	public Charakter getCharakter() {
+		return charakter;
+	}
+	
+	public void setCharakter(Charakter charakter) {
+		this.charakter = charakter;
 	}
 	
 	public float getFocusX(float x) {
@@ -97,11 +136,7 @@ public class Spielwelt extends TiledMapPlus {
 		return -1*y+(getHeight()*getTileHeight())/2;
 	}
 	
-	public boolean checkCollision(Shape shape) {
-		for(Shape collisionObject : getCollisionObjects()) {
-			if(shape.intersects(collisionObject))
-				return true;
-		}
-		return false;
+	public ArrayList<Shape> getCollisionObjects() {
+		return collisionObjects;
 	}
 }

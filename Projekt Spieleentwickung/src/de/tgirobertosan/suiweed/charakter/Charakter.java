@@ -10,7 +10,8 @@ import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.RoundedRectangle;
 import org.newdawn.slick.geom.Shape;
 
-import de.tgirobertosan.suiweed.Spielwelt;
+import de.tgirobertosan.suiweed.spielwelt.Location;
+import de.tgirobertosan.suiweed.spielwelt.Spielwelt;
 
 
 
@@ -31,6 +32,7 @@ public class Charakter {
 	
 	private Spielwelt spielwelt;
 	private Shape collisionShape;
+	private int collisionXOffset = 5;
 
 	public Charakter(String name) {
 		this(name, 0, 0, null);
@@ -46,7 +48,7 @@ public class Charakter {
 	public void init(GameContainer container) throws SlickException {
 
 		laufSprite = new SpriteSheet("res/character/sprites/lauf.png", 141, 192);
-		this.collisionShape = new RoundedRectangle(x+5, y, breite-10, hoehe, 10);
+		this.collisionShape = new RoundedRectangle(x+collisionXOffset, y, breite-10, hoehe, 10);
 		initialisiereAnimation();
 		inventar.init(container);
 		//input = container.getInput();
@@ -176,8 +178,24 @@ public class Charakter {
 
 	}
 	
-	public void setSpielwelt(Spielwelt spielwelt) {
-		this.spielwelt = spielwelt;
+	public void setLocation(Location destination) {
+		this.x = destination.getX();
+		this.y = destination.getY();
+		this.collisionShape.setLocation(destination.getX()+collisionXOffset, destination.getY());
+		changeSpielwelt(destination.getSpielwelt());
+	}
+	
+
+	public Spielwelt getSpielwelt() {
+		return spielwelt;
+	}
+	
+	public void changeSpielwelt(Spielwelt destinationWelt) {
+		if(destinationWelt != null && !destinationWelt.equals(spielwelt)) {
+			destinationWelt.setCharakter(this);
+			spielwelt.changeSpielwelt(destinationWelt);
+			this.spielwelt = destinationWelt;
+		}
 	}
 	
 	public Shape getCollisionShape() {

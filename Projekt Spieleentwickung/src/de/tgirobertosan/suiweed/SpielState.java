@@ -8,6 +8,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import de.tgirobertosan.suiweed.charakter.InputHandler;
+import de.tgirobertosan.suiweed.spielwelt.Spielwelt;
 
 public class SpielState extends BasicGameState {
 
@@ -15,7 +16,7 @@ public class SpielState extends BasicGameState {
 
 	private InputHandler inputHandler;
 
-	private Spielwelt startWelt = null;
+	private Spielwelt spielWelt = null;
 
 	@Override
 	public void init(GameContainer container, StateBasedGame game) throws SlickException {
@@ -24,28 +25,43 @@ public class SpielState extends BasicGameState {
 		inputHandler.init();
 		// container.getInput().enableKeyRepeat();
 
-		startWelt = new Spielwelt("/res/tilemaps/tilemap1.tmx");
-		startWelt.init(inputHandler);
+		spielWelt = new Spielwelt("/res/tilemaps/tilemap1.tmx");
+		spielWelt.init(this);
 
-		startWelt.getCharakter().init(container);
+		if(spielWelt.getCharakter() != null)
+			spielWelt.getCharakter().init(container);
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
-		startWelt.renderWithObjects(container, g);
+		spielWelt.renderWithObjects(container, g);
 	}
 
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
 
 		inputHandler.handleInput();
-		startWelt.focusCharakter(container.getWidth(), container.getHeight());
+		spielWelt.focusCharakter(container.getWidth(), container.getHeight());
+		spielWelt.checkTriggers();
 	}
 
 	@Override
 	public int getID() {
 
 		return id;
+	}
+	
+	public void changeSpielwelt(Spielwelt spielwelt) {
+		try {
+			spielwelt.init(this);
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+		this.spielWelt = spielwelt;
+	}
+	
+	public InputHandler getInputHandler() {
+		return inputHandler;
 	}
 
 }

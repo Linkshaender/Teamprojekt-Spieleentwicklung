@@ -1,4 +1,4 @@
-package de.tgirobertosan.suiweed;
+package de.tgirobertosan.suiweed.spielwelt;
 import java.util.ArrayList;
 
 import org.newdawn.slick.GameContainer;
@@ -13,8 +13,11 @@ import org.newdawn.slick.tiled.TileOnLayer;
 import org.newdawn.slick.tiled.TileSet;
 import org.newdawn.slick.tiled.TiledMapPlus;
 
+import de.tgirobertosan.suiweed.SpielState;
 import de.tgirobertosan.suiweed.charakter.Charakter;
-import de.tgirobertosan.suiweed.charakter.InputHandler;
+import de.tgirobertosan.suiweed.spielwelt.trigger.Teleport;
+import de.tgirobertosan.suiweed.spielwelt.trigger.Trigger;
+import de.tgirobertosan.suiweed.spielwelt.trigger.Trigger.TriggerEvent;
 
 
 public class Spielwelt extends TiledMapPlus {
@@ -23,24 +26,31 @@ public class Spielwelt extends TiledMapPlus {
 	private int layerIndexAbovePlayer = 2; //Layer >= layerIndexAbovePlayer werden nach dem Spieler gerendert
 	private String collisionObjectLayerName = "block"; //Name des ObjectLayers mit dem Kollisionsobjekte auf Map erzeugt werden
 
-	private ArrayList<Shape> collisionObjects = new ArrayList<Shape>();
+	private String name;
 	
 	/**Der Charakter, falls er sich auf dieser Map befindet**/
 	private Charakter charakter;
+	private SpielState spielState;
 	
 	private int x = 0;
 	private int y = 0;
 	
 	private int transX = 0;
 	private int transY = 0;
+	
+
+	private ArrayList<Shape> collisionObjects = new ArrayList<Shape>();
+	private ArrayList<Trigger> interactionTriggers = new ArrayList<Trigger>();
+	private ArrayList<Trigger> locationTriggers = new ArrayList<Trigger>();
 
 	public Spielwelt(String path) throws SlickException {
 		super(path);
-		
+		this.name = path.substring(path.lastIndexOf("/")+1);
 	}
 	
-	public void init(InputHandler inputHandler) throws SlickException {
-		addObjects(inputHandler);
+	public void init(SpielState spielState) throws SlickException {
+		this.spielState = spielState;
+		addObjects();
 		addTileCollisions();
 	}
 
@@ -57,6 +67,11 @@ public class Spielwelt extends TiledMapPlus {
 	public void renderCollisionObjects(Graphics g) {
 		for(Shape shape : collisionObjects)
 			g.fill(shape);
+	}
+	public void renderTriggerShapes(Graphics g) {
+		for(Trigger trigger : locationTriggers) {
+			g.fill(trigger.getTriggerArea());
+		}
 	}
 	
 	/**
@@ -91,7 +106,9 @@ public class Spielwelt extends TiledMapPlus {
 			charakter.render(container, g);
 		
 		renderTopLayers();
-		
+
+		//renderTriggerShapes(g);
+		//renderCollisionObjects(g);
 		if(charakter != null)
 			charakter.zeichneNamen(g);
 		g.translate(-transX, -transY);
@@ -123,7 +140,7 @@ public class Spielwelt extends TiledMapPlus {
 			}
 	}
 	
-	private void addObjects(InputHandler inputHandler) {
+	private void addObjects() {
 		for(ObjectGroup objectGroup : getObjectGroups()) {
 			if(objectGroup.name.equalsIgnoreCase(collisionObjectLayerName))
 				for(GroupObject blockObject : objectGroup.getObjects()) {
@@ -131,12 +148,26 @@ public class Spielwelt extends TiledMapPlus {
 				}
 			else {
 				for(GroupObject groupObject : objectGroup.getObjects()) {
-					if(groupObject.type.equalsIgnoreCase("charakter")) {
+					if(groupObject.type.equalsIgnoreCase("charakter") && charakter == null) {
 						charakter = new Charakter(groupObject.name, groupObject.x, groupObject.y, this);
-						inputHandler.setCharakter(charakter);
+						spielState.getInputHandler().setCharakter(charakter);
+					} else if(groupObject.type.equalsIgnoreCase("TeleportTrigger")) {
+						Teleport teleTrigger = Teleport.getFromGroupObject(groupObject, null, spielState);
+						if(teleTrigger.getTriggerEvent() != TriggerEvent.LEAVE)
+							teleTrigger.setActive(true);
+						if(teleTrigger.getTriggerEvent() == TriggerEvent.INTERACT)
+							interactionTriggers.add(teleTrigger);
+						else
+							locationTriggers.add(teleTrigger);
 					}
 				}
 			}
+		}
+	}
+	
+	public void checkTriggers() {
+		for(Trigger trigger : locationTriggers) {
+			trigger.checkAndFire(charakter);
 		}
 	}
 	
@@ -159,5 +190,19 @@ public class Spielwelt extends TiledMapPlus {
 	
 	public ArrayList<Shape> getCollisionObjects() {
 		return collisionObjects;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public ArrayList<Trigger> getInteractionTriggers() {
+		return interactionTriggers;
+	}
+	
+	public void changeSpielwelt(Spielwelt neueSpielwelt) {
+		if(neueSpielwelt != null) {
+			spielState.changeSpielwelt(neueSpielwelt);
+		}
 	}
 }

@@ -8,12 +8,16 @@ import org.newdawn.slick.command.InputProvider;
 import org.newdawn.slick.command.InputProviderListener;
 import org.newdawn.slick.command.KeyControl;
 
+import de.tgirobertosan.suiweed.spielwelt.trigger.Trigger;
+
 
 public class InputHandler implements InputProviderListener {
 	
 	private InputProvider provider;
-	
+
+	private Command interact = new BasicCommand("interact");
 	private Command attack = new BasicCommand("attack");
+	
 	private Command up = new BasicCommand("up");
 	private Command left = new BasicCommand("left");
 	private Command right = new BasicCommand("right");
@@ -51,6 +55,8 @@ public class InputHandler implements InputProviderListener {
 		provider.bindCommand(new KeyControl(Input.KEY_DOWN), down);
 		provider.bindCommand(new KeyControl(Input.KEY_S), down);
 		provider.bindCommand(new ControllerDirectionControl(0, ControllerDirectionControl.UP), up);
+
+		provider.bindCommand(new KeyControl(Input.KEY_E), interact);
 		provider.bindCommand(new KeyControl(Input.KEY_SPACE), attack);
 		provider.bindCommand(new ControllerButtonControl(0, 1), attack);
 	}
@@ -61,11 +67,18 @@ public class InputHandler implements InputProviderListener {
 			return;
 		handleMovement();
 		handleAttacks();
+		handleInteractions();
 	}
 	
 	private void handleAttacks() {
 		/*if(provider.isCommandControlDown(attack))
 			charakter.attack();*/
+	}
+	
+	private void handleInteractions() {
+		if(provider.isCommandControlDown(interact))
+			for(Trigger trigger : charakter.getSpielwelt().getInteractionTriggers())
+				trigger.checkAndFire(charakter);
 	}
 	
 	private void handleMovement() {

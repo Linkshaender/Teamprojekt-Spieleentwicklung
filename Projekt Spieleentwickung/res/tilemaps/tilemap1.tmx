@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="36">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="41">
  <tileset firstgid="1" name="terrain" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
   <image source="../tilesets/terrain.png" width="1024" height="1024"/>
   <tile id="187">
@@ -73,7 +73,7 @@
  </layer>
  <layer name="onGround" width="50" height="35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3WQQ5AQAwF0DkoTiJOgpPYOIrEQdTOojITU9M//Jf8HVJVzYTwXavBNdvD5yJqJK2k8y4kUy9ZJIN3ITdS+nzO0CiZJHOJoiK0OUfvcyqkPv9Vzs4suW+1/6DEvUQxNZw7du8CyBz6XuO5Fot23kLfXegzflVTrVZQ5+etb4H6vkRERESkOwByzk7YWBsAAA==
+   H4sIAAAAAAAAC+2WUQ6CMBBECTdDriEmwjXQk1hP4o9HMfEgTP/Q1EBo6c7Wfcl8kFAys2w3W1Xl8kzwzmvjdxk5Qh10kjYSyQg9oKu0kR+sqbPvoRvkoHsOUwuE+py9zmthqvO/EjMzc87b0D3IcdYwltCwd7ylDRjJYZ9rttdyEdq32GcXe4/P0eQ1Faz9s9e/YM1rGIbBQAMdoFbaSCRnqIcGaSORlJDjUn/m8M8acV85nNIcHo19NQHGOATQWBsAAA==
   </data>
  </layer>
  <layer name="top" width="50" height="35">
@@ -93,8 +93,22 @@
   <object id="34" x="241" y="543">
    <polygon points="0,0 -1,11 4,21 2,40 23,44 37,40 55,44 62,28 58,3"/>
   </object>
+  <object id="37" x="288" y="1060">
+   <polygon points="0,0 -24,24 -28,3 -11,-23"/>
+  </object>
+  <object id="38" x="162" y="1062">
+   <polygon points="0,0 -24,24 -28,3 -11,-23"/>
+  </object>
  </objectgroup>
  <objectgroup name="objects">
   <object id="35" name="Hope" type="Charakter" x="512" y="256" width="32" height="64"/>
+  <object id="39" name="Weg nach Indien" type="TeleportTrigger" x="166" y="1034" width="84" height="86">
+   <properties>
+    <property name="Map" value="tilemap2.tmx"/>
+    <property name="TriggerEvent" value="ENTER"/>
+    <property name="X" value="200"/>
+    <property name="Y" value="240"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

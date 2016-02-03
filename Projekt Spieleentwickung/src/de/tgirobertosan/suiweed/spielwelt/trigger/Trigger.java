@@ -15,10 +15,16 @@ public abstract class Trigger {
 	
 	/**The Shape in which the player gets checked for the TriggerEvent**/
 	protected Shape triggerArea;
+	protected int interactionRange;
 	
 	public Trigger(TriggerEvent triggerEvent, Shape triggerArea) {
+		this(triggerEvent, triggerArea, 50);
+	}
+
+	public Trigger(TriggerEvent triggerEvent, Shape triggerArea, int interactionRange) {
 		this.triggerEvent = triggerEvent;
 		this.triggerArea = triggerArea;
+		this.interactionRange = interactionRange;
 	}
 	
 	/**Triggers with TriggerEvent.INTERACT should NOT be checked in update() they are checked by InputHandler**/
@@ -46,7 +52,7 @@ public abstract class Trigger {
 				fireTrigger(charakter);
 			break;
 		case INTERACT:
-			if(triggerArea.contains(charakter.getCollisionShape()) || charakter.getCollisionShape().contains(triggerArea))
+			if(charakter.getCollisionShape().contains(triggerArea) || (charakter.isLookingInDirectionOf(triggerArea) && charakter.isInNearOf(triggerArea, interactionRange)))
 				fireTrigger(charakter);
 			break;
 		}

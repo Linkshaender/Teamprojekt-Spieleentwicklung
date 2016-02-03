@@ -24,7 +24,7 @@ public class Charakter {
 	private int hoehe = 48;
 	private int animationsGeschw = 99;
 	private int bewegungsGeschw = 1;
-	private String richtung = "Runter";
+	private Richtung richtung = Richtung.RUNTER;
 	private ArrayList<Animation> bewegungsAnimation = new ArrayList<Animation>();
 	//private Input input;
 	private SpriteSheet laufSprite;
@@ -34,6 +34,10 @@ public class Charakter {
 	private Shape collisionShape;
 	private int collisionXOffset = 5;
 
+	public enum Richtung {
+		RUNTER, LINKS, RECHTS, HOCH
+	}
+	
 	public Charakter(String name) {
 		this(name, 0, 0, null);
 	}
@@ -115,11 +119,11 @@ public class Charakter {
 			if(xDir > 0) {
 				bewegungsAnimation.get(1).stop();
 				bewegungsAnimation.get(2).start();
-				richtung = "Rechts";
+				richtung = Richtung.RECHTS;
 			} else if(xDir < 0) {
 				bewegungsAnimation.get(2).stop();
 				bewegungsAnimation.get(1).start();
-				richtung = "Links";
+				richtung = Richtung.LINKS;
 			} else {
 				bewegungsAnimation.get(1).stop();
 				bewegungsAnimation.get(2).stop();
@@ -134,11 +138,11 @@ public class Charakter {
 			if(yDir > 0) {
 				bewegungsAnimation.get(3).stop();
 				bewegungsAnimation.get(0).start();
-				richtung = "Runter";
+				richtung = Richtung.RUNTER;
 			} else if(yDir < 0) {
 				bewegungsAnimation.get(0).stop();
 				bewegungsAnimation.get(3).start();
-				richtung = "Hoch";
+				richtung = Richtung.HOCH;
 			} else {
 				bewegungsAnimation.get(0).stop();
 				bewegungsAnimation.get(3).stop();
@@ -149,10 +153,10 @@ public class Charakter {
 	private void zeichne(){
 
 		switch(richtung){
-		case("Runter"): bewegungsAnimation.get(0).draw(x, y);break;
-		case("Links"): bewegungsAnimation.get(1).draw(x, y);break;
-		case("Rechts"): bewegungsAnimation.get(2).draw(x, y);break;
-		case("Hoch"): bewegungsAnimation.get(3).draw(x, y);break;
+		case RUNTER: bewegungsAnimation.get(0).draw(x, y);break;
+		case LINKS: bewegungsAnimation.get(1).draw(x, y);break;
+		case RECHTS: bewegungsAnimation.get(2).draw(x, y);break;
+		case HOCH: bewegungsAnimation.get(3).draw(x, y);break;
 		default: break;
 		}
 	}
@@ -208,6 +212,50 @@ public class Charakter {
 
 	public float getY() {
 		return y;
+	}
+	
+	public boolean isLookingInDirectionOf(Shape shape) {
+		boolean lookingInDirection = true;
+		switch(richtung) {
+		case RUNTER:
+			if(shape.getMaxY() < this.y)
+				lookingInDirection = false;
+			break;
+		case HOCH:
+			if(shape.getMinY() > this.y)
+				lookingInDirection = false;
+			break;
+		case LINKS:
+			if(shape.getMinX() > this.x)
+				lookingInDirection = false;
+			break;
+		case RECHTS:
+			if(shape.getMaxX() < this.x)
+				lookingInDirection = false;
+			break;
+		}
+		return lookingInDirection;
+	}
+	
+	public boolean isInNearOf(Shape shape, int range) {
+		boolean pointIsX = true;
+		boolean isInNear = false;
+		for(float point : shape.getPoints()) {
+			if(pointIsX) {
+				pointIsX = false;
+				if(point > collisionShape.getCenterX()+range || point < collisionShape.getCenterX()-range)
+					isInNear = false;
+				else
+					isInNear = true;
+			} else {
+				pointIsX = true;
+				if(!isInNear)
+					continue;
+				if(point <= collisionShape.getCenterY()+range && point >= collisionShape.getCenterY()-range)
+					return true;
+			}
+		}
+		return false;
 	}
 
 	/*@Override

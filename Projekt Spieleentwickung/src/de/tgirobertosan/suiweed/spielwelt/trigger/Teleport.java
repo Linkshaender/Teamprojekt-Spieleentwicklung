@@ -16,11 +16,19 @@ public class Teleport extends Trigger {
 		TriggerEvent triggerEvent = TriggerEvent.valueOf(groupObject.props.getProperty("TriggerEvent", "ENTER"));
 		Shape triggerArea = groupObject.getShape();
 		Location destination = Location.getFromGroupObject(groupObject, spielwelten);
+		if(triggerEvent == TriggerEvent.INTERACT) {
+			return new Teleport(triggerEvent, triggerArea, destination, Integer.valueOf(groupObject.props.getProperty("Range", "50")));
+		}
 		return new Teleport(triggerEvent, triggerArea, destination);
 	}
 	
 	public Teleport(TriggerEvent triggerEvent, Shape triggerArea, Location destination) {
 		super(triggerEvent, triggerArea);
+		this.destination = destination;
+	}
+
+	public Teleport(TriggerEvent triggerEvent, Shape triggerArea, Location destination, int interactionRange) {
+		super(triggerEvent, triggerArea, interactionRange);
 		this.destination = destination;
 	}
 

@@ -105,7 +105,8 @@
   <object id="39" name="Weg nach Indien" type="TeleportTrigger" x="166" y="1034" width="84" height="86">
    <properties>
     <property name="Map" value="tilemap2.tmx"/>
-    <property name="TriggerEvent" value="ENTER"/>
+    <property name="Range" value="50"/>
+    <property name="TriggerEvent" value="INTERACT"/>
     <property name="X" value="200"/>
     <property name="Y" value="240"/>
    </properties>

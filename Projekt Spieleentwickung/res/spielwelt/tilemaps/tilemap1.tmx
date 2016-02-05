@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="41">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="42">
  <tileset firstgid="1" name="terrain" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
   <image source="../tilesets/terrain.png" width="1024" height="1024"/>
   <tile id="187">
@@ -58,14 +58,6 @@
    </objectgroup>
   </tile>
  </tileset>
- <tileset firstgid="1025" name="blocked" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../tilesets/blocked.png" width="64" height="64"/>
-  <tile id="0">
-   <properties>
-    <property name="movementBlocker" value="true"/>
-   </properties>
-  </tile>
- </tileset>
  <layer name="ground" width="50" height="35">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC8XYUY7bMAwE0FWP4ptZtnLM/vUovUcbIAM8c9XUu826AYTYsiyRw+GI1tLe3paL2/a77Y+20rc9rtN/vx+Pvvt95/72GJfrq33Iujd80Lb+sL9j5z4Zuz6a81zddtYfYDuwr+NXroN7Z46MeaV9Y9J3/83GBcPwJ7aJe/Uvdm/gEB/P2PJVMQn/48etHXmTHFraMafyPL6/Oh7PmriNcp8cly/j0RIP82Arc12VH2tZK1irQVt7ny/2pZk/vR117uqWWMSWmW/Jm2Cfa/EY7e+c+so8CdflUnzT9pXrtMH4mW9XtrW08CW+mffpl2/yMf+fsePHiTF1v/KZeSzPzeP0x271NrYnRvtk/dq+f3vffhZbzzRtdp9YShzMn6oD5tJg3jN23O3WFv34bJP7G9exKZhbv3j/pz3nGfb6kTH/6oeYart1VsYkPsYrHBvtvO7e7R7t9X6YO5UjxmfnWeyXe9Zdn82Pf/UhOMef6NLC/0a/Oh0/Z7y6slU+aJf6KtYrz3rB4iq7raV6O/LCGtBrse/4Ysx6e8+rq+KjNlkvxebY4vdGcsV6Jn1n9o9XtVGuw+toUq3H1bLYnXF573/4UeMRrqhD1rGxM3FyjPmjD3LuqphUm60He7E5z5cyNj72D65d+f2Rd3xmnu78qz+dtfZ25JM5FT0Wn7O41m+A0c7rn/nru9a05rqY1zX2Sd/ZM6BnHJyd0zwbF7zF9lae1T3c/vqeuVSx6axtbq28M8tJ1wlPrOGDr2vUd8yLek63taPNS3mnM1/FT720vlMD3QvUfPdgz3PcB93PxSRrzWpFdUyMtbvWz1nfOkgdWdsRV+eQV2rSVubOvPEjfqsJnf9gk/EZU2sv53O/9busfkeolXv5V3M8J/B8YW3HmNS9zrMtcTJXxFVbxECdmWm/tUNn3RqTW5mj1rDqUT2XqOdDN57Hp/gjd81Xx8xqTvmufs3OmmuM1UO/l+qZljbXswC1QX3aWLPWNOK0lbU711Xjlsk75pHXlQeeR8T+GhvxNc88lxjtiPnejrFUZxI//TK3xFY9krdiKB/UsVl+ywPzrvpsvDxLE2v1RO6uZV31X07VbynrGvcQeWNO2jf7ppfLVbPq/mcuWZNoS9ateb2UedQHtekX5pFoalgbAAA=
@@ -110,6 +102,12 @@
     <property name="X" value="200"/>
     <property name="Y" value="240"/>
    </properties>
+  </object>
+  <object id="41" name="Play Sound Kebab" type="LocatedSound" x="485" y="711" width="223" height="208">
+   <properties>
+    <property name="Sound" value="res/spielwelt/audio/kebab.ogg"/>
+   </properties>
+   <ellipse/>
   </object>
  </objectgroup>
 </map>

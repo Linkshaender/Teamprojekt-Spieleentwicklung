@@ -1,6 +1,7 @@
 package de.tgirobertosan.suiweed.spielwelt;
 
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
 import org.newdawn.slick.tiled.GroupObject;
 
 
@@ -30,7 +31,7 @@ public class Location {
 		}
 		if(destinationWelt == null && map != null)
 			try {
-				destinationWelt = new Spielwelt("/res/tilemaps/"+map);
+				destinationWelt = new Spielwelt("/res/spielwelt/tilemaps/"+map);
 			} catch (SlickException e) {
 				e.printStackTrace();
 			}
@@ -41,6 +42,12 @@ public class Location {
 		this.spielwelt = spielwelt;
 		this.x = x;
 		this.y = y;
+	}
+	
+	public void playSoundAt(Sound sound) {
+		if(spielwelt != null) {
+			spielwelt.playSoundAt(sound, x, y);
+		}
 	}
 
 	public Spielwelt getSpielwelt() {

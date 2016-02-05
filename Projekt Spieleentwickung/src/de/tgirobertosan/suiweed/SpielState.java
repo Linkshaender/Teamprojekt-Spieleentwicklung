@@ -3,7 +3,6 @@ package de.tgirobertosan.suiweed;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.command.InputProvider;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -21,11 +20,11 @@ public class SpielState extends BasicGameState {
 	@Override
 	public void init(GameContainer container, StateBasedGame game) throws SlickException {
 
-		inputHandler = new InputHandler(new InputProvider(container.getInput()));
+		inputHandler = new InputHandler(container.getInput());
 		inputHandler.init();
 		// container.getInput().enableKeyRepeat();
 
-		spielWelt = new Spielwelt("/res/tilemaps/tilemap1.tmx");
+		spielWelt = new Spielwelt("/res/spielwelt/tilemaps/tilemap1.tmx");
 		spielWelt.init(this);
 
 		if(spielWelt.getCharakter() != null)

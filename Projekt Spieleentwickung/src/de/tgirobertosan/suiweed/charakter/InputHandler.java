@@ -7,12 +7,14 @@ import org.newdawn.slick.command.ControllerDirectionControl;
 import org.newdawn.slick.command.InputProvider;
 import org.newdawn.slick.command.InputProviderListener;
 import org.newdawn.slick.command.KeyControl;
+import org.newdawn.slick.command.MouseButtonControl;
 
 import de.tgirobertosan.suiweed.spielwelt.trigger.Trigger;
 
 
 public class InputHandler implements InputProviderListener {
 	
+	private Input input;
 	private InputProvider provider;
 
 	private Command interact = new BasicCommand("interact");
@@ -22,12 +24,15 @@ public class InputHandler implements InputProviderListener {
 	private Command left = new BasicCommand("left");
 	private Command right = new BasicCommand("right");
 	private Command down = new BasicCommand("down");
+
+	private Command leftClick = new BasicCommand("leftClick");
 	
 	private Charakter charakter;
 	
 	
-	public InputHandler(InputProvider provider) {
-		this.provider = provider;
+	public InputHandler(Input input) {
+		this.input = input;
+		this.provider = new InputProvider(input);
 	}
 
 	@Override
@@ -59,6 +64,8 @@ public class InputHandler implements InputProviderListener {
 		provider.bindCommand(new KeyControl(Input.KEY_E), interact);
 		provider.bindCommand(new KeyControl(Input.KEY_SPACE), attack);
 		provider.bindCommand(new ControllerButtonControl(0, 1), attack);
+		
+		provider.bindCommand(new MouseButtonControl(Input.MOUSE_LEFT_BUTTON), leftClick);
 	}
 	
 	
@@ -68,6 +75,10 @@ public class InputHandler implements InputProviderListener {
 		handleMovement();
 		handleAttacks();
 		handleInteractions();
+		//Testet kleinerwerdende Soundlautstärke bei zunehmender Distanz zum Charakter
+		/*if(provider.isCommandControlDown(leftClick)) {
+			charakter.getSpielwelt().testLocatedSound(input.getMouseX(), input.getMouseY());
+		}*/
 	}
 	
 	private void handleAttacks() {

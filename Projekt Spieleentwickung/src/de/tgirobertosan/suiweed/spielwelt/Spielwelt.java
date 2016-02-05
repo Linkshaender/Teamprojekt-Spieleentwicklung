@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.geom.Transform;
 import org.newdawn.slick.tiled.GlobalTile;
@@ -15,6 +16,7 @@ import org.newdawn.slick.tiled.TiledMapPlus;
 
 import de.tgirobertosan.suiweed.SpielState;
 import de.tgirobertosan.suiweed.charakter.Charakter;
+import de.tgirobertosan.suiweed.spielwelt.trigger.LocatedSound;
 import de.tgirobertosan.suiweed.spielwelt.trigger.Teleport;
 import de.tgirobertosan.suiweed.spielwelt.trigger.Trigger;
 import de.tgirobertosan.suiweed.spielwelt.trigger.Trigger.TriggerEvent;
@@ -32,20 +34,29 @@ public class Spielwelt extends TiledMapPlus {
 	private Charakter charakter;
 	private SpielState spielState;
 	
-	private int x = 0;
-	private int y = 0;
+	private int absoluteX = 0;
+	private int absoluteY = 0;
 	
 	private int transX = 0;
 	private int transY = 0;
+	private int mapWidth;
+	private int mapHeight;
+	private float maxDistanceQuadriert = 100000;
 	
 
 	private ArrayList<Shape> collisionObjects = new ArrayList<Shape>();
 	private ArrayList<Trigger> interactionTriggers = new ArrayList<Trigger>();
 	private ArrayList<Trigger> locationTriggers = new ArrayList<Trigger>();
+	
+	//TODO: TestSound
+	private Sound testSound = new Sound("res/spielwelt/audio/kebab.ogg");
 
 	public Spielwelt(String path) throws SlickException {
 		super(path);
 		this.name = path.substring(path.lastIndexOf("/")+1);
+		this.mapWidth = getWidth()*getTileWidth();
+		this.mapHeight = getHeight()*getTileHeight();
+		this.maxDistanceQuadriert = (float) (Math.pow(mapWidth, 2)+Math.pow(mapHeight, 2));
 	}
 	
 	public void init(SpielState spielState) throws SlickException {
@@ -80,8 +91,6 @@ public class Spielwelt extends TiledMapPlus {
 	 * @param screenHeight Height of the Window
 	 */
 	public void focusCharakter(int screenWidth, int screenHeight) {
-		int mapWidth = getWidth()*getTileWidth();
-		int mapHeight = getHeight()*getTileHeight();
 		if(charakter.getX()-screenWidth/2+16 < 0)
 		          transX = 0;
 		       else if(charakter.getX()+screenWidth/2+16 > mapWidth)
@@ -103,7 +112,7 @@ public class Spielwelt extends TiledMapPlus {
 		renderGroundLayers();
 		
 		if(charakter != null)
-			charakter.render(container, g);
+			charakter.renderCharakter();
 		
 		renderTopLayers();
 
@@ -112,17 +121,19 @@ public class Spielwelt extends TiledMapPlus {
 		if(charakter != null)
 			charakter.zeichneNamen(g);
 		g.translate(-transX, -transY);
+		if(charakter != null)
+			charakter.renderInventar(container, g);
 	}
 	
 	public void renderGroundLayers() {
 		for(int i = 0; i < layerIndexAbovePlayer && i < getLayerCount(); i++) {
-			render(x, y, i);
+			render(absoluteX, absoluteY, i);
 		}
 	}
 	
 	public void renderTopLayers() {
 		for(int i = layerIndexAbovePlayer;i < getLayerCount(); i++) {
-			render(x, y, i);
+			render(absoluteX, absoluteY, i);
 		}
 	}
 	
@@ -133,7 +144,7 @@ public class Spielwelt extends TiledMapPlus {
 				if(shape != null) {
 					for(TileOnLayer tileOnLayer : getAllTilesFromAllLayers(tileSet.name)) {
 						if(tileOnLayer.getGid() == globalTile.getGid()) {
-							collisionObjects.add(shape.transform(Transform.createTranslateTransform(tileOnLayer.x*tileSet.getTileWidth()+x, tileOnLayer.y*tileSet.getTileHeight()+y)));
+							collisionObjects.add(shape.transform(Transform.createTranslateTransform(tileOnLayer.x*tileSet.getTileWidth()+absoluteX, tileOnLayer.y*tileSet.getTileHeight()+absoluteY)));
 						}
 					}
 				}
@@ -148,21 +159,37 @@ public class Spielwelt extends TiledMapPlus {
 				}
 			else {
 				for(GroupObject groupObject : objectGroup.getObjects()) {
+					Trigger trigger = null;
 					if(groupObject.type.equalsIgnoreCase("charakter") && charakter == null) {
 						charakter = new Charakter(groupObject.name, groupObject.x, groupObject.y, this);
 						spielState.getInputHandler().setCharakter(charakter);
-					} else if(groupObject.type.equalsIgnoreCase("TeleportTrigger")) {
-						Teleport teleTrigger = Teleport.getFromGroupObject(groupObject, null, spielState);
-						if(teleTrigger.getTriggerEvent() != TriggerEvent.LEAVE)
-							teleTrigger.setActive(true);
-						if(teleTrigger.getTriggerEvent() == TriggerEvent.INTERACT)
-							interactionTriggers.add(teleTrigger);
-						else
-							locationTriggers.add(teleTrigger);
+					} else if(groupObject.type.equalsIgnoreCase("Teleport")) {
+						trigger = Teleport.getFromGroupObject(groupObject, null, spielState);
+					} else if(groupObject.type.equalsIgnoreCase("LocatedSound")) {
+						trigger = LocatedSound.getFromGroupObject(groupObject);
 					}
+					if(trigger != null && trigger.getTriggerEvent() == TriggerEvent.INTERACT)
+						interactionTriggers.add(trigger);
+					else if (trigger != null)
+						locationTriggers.add(trigger);
 				}
 			}
 		}
+	}
+	
+	public void testLocatedSound(int x, int y) {
+		//Methode ist nur da um zu testen ob Sound Placement (Mausklick aus InputHandler) funktioniert
+		if(!testSound.playing()) {
+			playSoundAt(testSound, -transX+x, -transY+y);
+		}
+	}
+	
+	//Variablen nach Pythagoras benannt
+	public void playSoundAt(Sound sound, int x, int y) {
+		float aQuadrat = (float) Math.pow(Math.abs(x-charakter.getX()), 2);
+		float bQuadrat = (float) Math.pow(Math.abs(y-charakter.getY()), 2);
+		float cQuadrat = aQuadrat+bQuadrat;
+		sound.playAt(1, (maxDistanceQuadriert-cQuadrat)/maxDistanceQuadriert, 0, 0, 1);
 	}
 	
 	public void checkTriggers() {

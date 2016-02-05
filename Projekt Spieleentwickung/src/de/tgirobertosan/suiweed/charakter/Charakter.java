@@ -64,10 +64,13 @@ public class Charakter {
 		//bewege();
 	}	
 
-	public void render(GameContainer arg0, Graphics g) throws SlickException {
+	public void renderCharakter() {
 			zeichne();
-			inventar.render(arg0, g);
 		
+	}
+	
+	public void renderInventar(GameContainer container, Graphics g) throws SlickException {
+		inventar.render(container, g);
 	}
 
 	/*

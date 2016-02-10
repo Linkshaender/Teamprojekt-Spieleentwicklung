@@ -1,7 +1,6 @@
 package de.tgirobertosan.suiweed.spielwelt;
 
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.Sound;
 import org.newdawn.slick.tiled.GroupObject;
 
 
@@ -42,12 +41,6 @@ public class Location {
 		this.spielwelt = spielwelt;
 		this.x = x;
 		this.y = y;
-	}
-	
-	public void playSoundAt(Sound sound) {
-		if(spielwelt != null) {
-			spielwelt.playSoundAt(sound, x, y);
-		}
 	}
 
 	public Spielwelt getSpielwelt() {

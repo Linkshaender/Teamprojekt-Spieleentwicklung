@@ -26,7 +26,7 @@
   </data>
  </layer>
  <objectgroup name="objects">
-  <object id="1" name="Nach Grasland" type="TeleportTrigger" x="732" y="2" width="104" height="71">
+  <object id="1" name="Nach Grasland" type="Teleport" x="732" y="2" width="104" height="71">
    <properties>
     <property name="Map" value="tilemap1.tmx"/>
     <property name="TriggerEvent" value="ENTER"/>

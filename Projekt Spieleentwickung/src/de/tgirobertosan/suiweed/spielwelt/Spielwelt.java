@@ -1,10 +1,10 @@
 package de.tgirobertosan.suiweed.spielwelt;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.Sound;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.geom.Transform;
 import org.newdawn.slick.tiled.GlobalTile;
@@ -47,9 +47,12 @@ public class Spielwelt extends TiledMapPlus {
 	private ArrayList<Shape> collisionObjects = new ArrayList<Shape>();
 	private ArrayList<Trigger> interactionTriggers = new ArrayList<Trigger>();
 	private ArrayList<Trigger> locationTriggers = new ArrayList<Trigger>();
+	private ArrayList<Trigger> initTriggers = new ArrayList<Trigger>();
+	private boolean checkInitTriggers = true;
+	private HashSet<SoundOnSpielwelt> loopedSounds = new HashSet<SoundOnSpielwelt>();
 	
-	//TODO: TestSound
-	private Sound testSound = new Sound("res/spielwelt/audio/kebab.ogg");
+	//Testsound
+	private SoundOnSpielwelt testSound = new SoundOnSpielwelt("res/spielwelt/audio/kebab.ogg", -1, -1, 1);
 
 	public Spielwelt(String path) throws SlickException {
 		super(path);
@@ -106,6 +109,13 @@ public class Spielwelt extends TiledMapPlus {
 		          transY = (int)-charakter.getY()+screenHeight/2-16;
 	}
 	
+	public void playLoopedSounds() {
+		for(SoundOnSpielwelt sound : loopedSounds) {
+			if(!sound.playing())
+				sound.playSoundFor(charakter, maxDistanceQuadriert);
+		}
+	}
+	
 	/**Rendert die Map komplett mit Spieler**/
 	public void renderWithObjects(GameContainer container, Graphics g) throws SlickException {
 		g.translate(transX, transY);
@@ -160,6 +170,7 @@ public class Spielwelt extends TiledMapPlus {
 			else {
 				for(GroupObject groupObject : objectGroup.getObjects()) {
 					Trigger trigger = null;
+					System.out.println(groupObject.type);
 					if(groupObject.type.equalsIgnoreCase("charakter") && charakter == null) {
 						charakter = new Charakter(groupObject.name, groupObject.x, groupObject.y, this);
 						spielState.getInputHandler().setCharakter(charakter);
@@ -168,9 +179,15 @@ public class Spielwelt extends TiledMapPlus {
 					} else if(groupObject.type.equalsIgnoreCase("LocatedSound")) {
 						trigger = LocatedSound.getFromGroupObject(groupObject);
 					}
-					if(trigger != null && trigger.getTriggerEvent() == TriggerEvent.INTERACT)
+					if(trigger == null)
+						continue;
+					if(trigger.getTriggerEvent() == TriggerEvent.INTERACT)
 						interactionTriggers.add(trigger);
-					else if (trigger != null)
+					else if(trigger.getTriggerEvent() == TriggerEvent.INIT) {
+						//NOTE: INIT-Triggers werden erst in checkTriggers() gefeuert, Map wäre hier noch nicht gerendert.
+						initTriggers.add(trigger);
+					}
+					else
 						locationTriggers.add(trigger);
 				}
 			}
@@ -180,19 +197,28 @@ public class Spielwelt extends TiledMapPlus {
 	public void testLocatedSound(int x, int y) {
 		//Methode ist nur da um zu testen ob Sound Placement (Mausklick aus InputHandler) funktioniert
 		if(!testSound.playing()) {
-			playSoundAt(testSound, -transX+x, -transY+y);
+			testSound.setX(-transX+x);
+			testSound.setY(-transY+y);
+			playSoundAt(testSound);
 		}
 	}
 	
-	//Variablen nach Pythagoras benannt
-	public void playSoundAt(Sound sound, int x, int y) {
-		float aQuadrat = (float) Math.pow(Math.abs(x-charakter.getX()), 2);
-		float bQuadrat = (float) Math.pow(Math.abs(y-charakter.getY()), 2);
-		float cQuadrat = aQuadrat+bQuadrat;
-		sound.playAt(1, (maxDistanceQuadriert-cQuadrat)/maxDistanceQuadriert, 0, 0, 1);
+	public void playSoundAt(SoundOnSpielwelt sound) {
+		playSoundAt(sound, false);
+	}
+
+	public void playSoundAt(SoundOnSpielwelt sound, boolean loop) {
+		sound.playSoundFor(charakter, maxDistanceQuadriert);
+		if(loop)
+			loopedSounds.add(sound);
 	}
 	
 	public void checkTriggers() {
+		if(checkInitTriggers) {
+			for(Trigger trigger : initTriggers)
+				trigger.checkAndFire(charakter);
+			checkInitTriggers = false;
+		}
 		for(Trigger trigger : locationTriggers) {
 			trigger.checkAndFire(charakter);
 		}

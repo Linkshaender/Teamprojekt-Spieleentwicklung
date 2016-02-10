@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="42">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="43">
  <tileset firstgid="1" name="terrain" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
   <image source="../tilesets/terrain.png" width="1024" height="1024"/>
   <tile id="187">
@@ -94,7 +94,7 @@
  </objectgroup>
  <objectgroup name="objects">
   <object id="35" name="Hope" type="Charakter" x="512" y="256" width="32" height="64"/>
-  <object id="39" name="Weg nach Indien" type="TeleportTrigger" x="166" y="1034" width="84" height="86">
+  <object id="39" name="Weg nach Indien" type="Teleport" x="166" y="1034" width="84" height="86">
    <properties>
     <property name="Map" value="tilemap2.tmx"/>
     <property name="Range" value="50"/>
@@ -103,11 +103,11 @@
     <property name="Y" value="240"/>
    </properties>
   </object>
-  <object id="41" name="Play Sound Kebab" type="LocatedSound" x="485" y="711" width="223" height="208">
+  <object id="42" name="Sound" type="LocatedSound" x="557" y="704" width="223" height="251">
    <properties>
     <property name="Sound" value="res/spielwelt/audio/kebab.ogg"/>
+    <property name="TriggerEvent" value="INIT"/>
    </properties>
-   <ellipse/>
   </object>
  </objectgroup>
 </map>

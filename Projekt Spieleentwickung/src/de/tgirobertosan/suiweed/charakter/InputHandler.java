@@ -37,13 +37,11 @@ public class InputHandler implements InputProviderListener {
 
 	@Override
 	public void controlPressed(Command cmd) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void controlReleased(Command cmd) {
-		// TODO Auto-generated method stub
 		
 	}
 	

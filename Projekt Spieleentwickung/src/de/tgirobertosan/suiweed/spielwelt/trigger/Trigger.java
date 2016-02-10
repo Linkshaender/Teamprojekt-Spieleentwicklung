@@ -8,7 +8,7 @@ import de.tgirobertosan.suiweed.charakter.Charakter;
 public abstract class Trigger {
 	
 	public enum TriggerEvent {
-		ENTER, LEAVE, TOUCH, INTERACT
+		ENTER, LEAVE, TOUCH, INTERACT, INIT
 	}
 	
 	protected TriggerEvent triggerEvent;
@@ -30,7 +30,7 @@ public abstract class Trigger {
 		this.triggerEvent = triggerEvent;
 		this.triggerArea = triggerArea;
 		this.interactionRange = interactionRange;
-		if(triggerEvent != TriggerEvent.INTERACT)
+		if(triggerEvent != TriggerEvent.LEAVE)
 			active = true;
 	}
 	
@@ -67,6 +67,11 @@ public abstract class Trigger {
 		case INTERACT:
 			if(charakter.getCollisionShape().contains(triggerArea) || (charakter.isLookingInDirectionOf(triggerArea) && charakter.isInNearOf(triggerArea, interactionRange)))
 				fireTrigger(charakter);
+			break;
+		case INIT:
+			active = false;
+			return;
+		default:
 			break;
 		}
 	}

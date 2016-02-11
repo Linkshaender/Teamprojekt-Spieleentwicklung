@@ -121,8 +121,10 @@ public class Spielwelt extends TiledMapPlus {
 		g.translate(transX, transY);
 		renderGroundLayers();
 		
+		
 		if(charakter != null)
 			charakter.renderCharakter();
+			charakter.zeichneTestgegner(g);
 		
 		renderTopLayers();
 

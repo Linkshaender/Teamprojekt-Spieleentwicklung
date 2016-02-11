@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="de.tgirobertosan.suiweed.Kontrolle" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/Kontrolle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="192" x="165" y="69"/>    
+    <position height="135" width="192" x="373" y="176"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="de.tgirobertosan.suiweed.Main" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/Main.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="41" y="135"/>    
+    <position height="99" width="113" x="373" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,140 +21,438 @@
   </class>  
   <class id="3" language="java" name="de.tgirobertosan.suiweed.SpielState" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/SpielState.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="259" y="451"/>    
+    <position height="207" width="296" x="705" y="909"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="de.tgirobertosan.suiweed.Spielwelt" project="Projekt Spieleentwickung" 
-    file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/Spielwelt.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="770" y="449"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="de.tgirobertosan.suiweed.charakter.Charakter" project="Projekt Spieleentwickung" 
+  <class id="4" language="java" name="de.tgirobertosan.suiweed.charakter.Charakter" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/charakter/Charakter.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="727" y="1081"/>    
+    <position height="783" width="388" x="663" y="2293"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="de.tgirobertosan.suiweed.charakter.InputHandler" 
+  <class id="5" language="java" name="de.tgirobertosan.suiweed.charakter.InputHandler" 
     project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/charakter/InputHandler.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="195" y="1066"/>    
+    <position height="405" width="280" x="745" y="1300"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="de.tgirobertosan.suiweed.charakter.Inventar" project="Projekt Spieleentwickung" 
+  <class id="6" language="java" name="de.tgirobertosan.suiweed.charakter.Inventar" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/charakter/Inventar.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1259" y="1075"/>    
+    <position height="639" width="274" x="349" y="3116"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="de.tgirobertosan.suiweed.gui.MenuState" project="Projekt Spieleentwickung" 
+  <class id="7" language="java" name="de.tgirobertosan.suiweed.gui.MenuState" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/gui/MenuState.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="782" y="66"/>    
+    <position height="351" width="296" x="41" y="909"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="de.tgirobertosan.suiweed.items.Waffe" project="Projekt Spieleentwickung" 
+  <class id="8" language="java" name="de.tgirobertosan.suiweed.items.Waffe" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/items/Waffe.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1260" y="574"/>    
+    <position height="117" width="139" x="349" y="3795"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="10">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="11" name="startWelt"/>      
-      <multiplicity id="12" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="13">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="14" name="inputHandler"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="16">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="17" name="waffe"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <enumeration id="9" language="java" name="de.tgirobertosan.suiweed.charakter.Charakter.Richtung" 
+    project="Projekt Spieleentwickung" 
+    file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/charakter/Charakter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="155" x="663" y="3116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="10" language="java" name="de.tgirobertosan.suiweed.spielwelt.Location" project="Projekt Spieleentwickung" 
+    file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/Location.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="279" width="292" x="1072" y="3116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="de.tgirobertosan.suiweed.spielwelt.SoundOnSpielwelt" 
+    project="Projekt Spieleentwickung" 
+    file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/SoundOnSpielwelt.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="223" x="377" y="909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="de.tgirobertosan.suiweed.spielwelt.Spielwelt" project="Projekt Spieleentwickung" 
+    file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/Spielwelt.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="693" width="326" x="1046" y="176"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="de.tgirobertosan.suiweed.spielwelt.trigger.LocatedSound" 
+    project="Projekt Spieleentwickung" 
+    file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/trigger/LocatedSound.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="268" x="1125" y="2100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="de.tgirobertosan.suiweed.spielwelt.trigger.Teleport" 
+    project="Projekt Spieleentwickung" 
+    file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/trigger/Teleport.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="340" x="724" y="2100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="de.tgirobertosan.suiweed.spielwelt.trigger.Trigger" 
+    project="Projekt Spieleentwickung" 
+    file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/trigger/Trigger.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="315" width="286" x="1109" y="1745"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="16" language="java" name="de.tgirobertosan.suiweed.spielwelt.trigger.Trigger.TriggerEvent" 
+    project="Projekt Spieleentwickung" 
+    file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/trigger/Trigger.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="180" x="1276" y="2293"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <generalization id="17">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <dependency id="18">    
+    <bendpoint x="1094" y="2100"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
   <dependency id="19">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
   <association id="20">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="21" name="waffe">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="23">    
+    <bendpoint x="714" y="1745"/>    
+    <bendpoint x="714" y="1300"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="24">    
+    <bendpoint x="1097" y="909"/>    
+    <bendpoint x="1097" y="1300"/>    
+    <bendpoint x="1104" y="1523"/>    
+    <bendpoint x="1092" y="1636"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="25" name="initTriggers"/>      
+      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="27">    
+    <bendpoint x="693" y="1745"/>    
+    <bendpoint x="693" y="2100"/>    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="21" name="spielwelt"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
+      <attribute id="28" name="charakter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="23">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="24" name="inventar"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
+  <association id="30">    
+    <bendpoint x="630" y="909"/>    
+    <bendpoint x="630" y="1300"/>    
+    <bendpoint x="630" y="1745"/>    
+    <bendpoint x="630" y="2100"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="31" name="charakter"/>      
+      <multiplicity id="32" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="26">    
+  <association id="33">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="34" name="richtung"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <bendpoint x="1118" y="909"/>    
+    <bendpoint x="1118" y="1300"/>    
+    <bendpoint x="1248" y="1528"/>    
+    <bendpoint x="1316" y="1672"/>    
+    <bendpoint x="1261" y="1702"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="37" name="locationTriggers"/>      
+      <multiplicity id="38" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="39">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </dependency>  
-  <dependency id="27">    
+  <dependency id="40">    
     <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="8"/>  
+    <end type="TARGET" refId="7"/>  
   </dependency>  
-  <association id="28">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="29" name="charakter"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
+  <nesting id="41">    
+    <bendpoint x="1444" y="2100"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="16"/>  
+  </nesting>  
+  <generalization id="42">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <association id="43">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="44" name="inventar">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="31">    
+  <association id="46">    
+    <bendpoint x="1139" y="909"/>    
+    <bendpoint x="1139" y="1300"/>    
+    <bendpoint x="1281" y="1541"/>    
+    <bendpoint x="1340" y="1647"/>    
+    <bendpoint x="1376" y="1695"/>    
+    <bendpoint x="1384" y="1715"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="47" name="interactionTriggers"/>      
+      <multiplicity id="48" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="49">    
+    <bendpoint x="1076" y="1745"/>    
+    <bendpoint x="1076" y="1300"/>    
+    <bendpoint x="1076" y="909"/>    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <association id="50">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="32" name="charakter"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+      <attribute id="51" name="inputHandler">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <dependency id="53">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="54">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="55">    
+    <bendpoint x="1465" y="909"/>    
+    <bendpoint x="1465" y="1300"/>    
+    <bendpoint x="1465" y="1745"/>    
+    <bendpoint x="1465" y="2100"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <association id="56">    
+    <bendpoint x="651" y="2100"/>    
+    <bendpoint x="651" y="1745"/>    
+    <bendpoint x="651" y="1300"/>    
+    <bendpoint x="651" y="909"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="57" name="spielwelt"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="59">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="60">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="61">    
+    <bendpoint x="529" y="1300"/>    
+    <bendpoint x="529" y="1745"/>    
+    <bendpoint x="529" y="2100"/>    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="62">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="63" name="spielWelt"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="65">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="66">    
+    <bendpoint x="1081" y="2293"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="67" name="destination"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="70" name="testSound"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="73" name="spielState"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="75">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </nesting>  
+  <dependency id="76">    
+    <bendpoint x="1031" y="909"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <association id="77">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="78" name="loopedSounds"/>      
+      <multiplicity id="79" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="80">    
+    <bendpoint x="672" y="1300"/>    
+    <bendpoint x="672" y="1745"/>    
+    <bendpoint x="672" y="2100"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="81">    
+    <bendpoint x="1486" y="2293"/>    
+    <bendpoint x="1486" y="2100"/>    
+    <bendpoint x="1486" y="1745"/>    
+    <bendpoint x="1486" y="1300"/>    
+    <bendpoint x="1486" y="909"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="82" name="spielwelt"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="84">    
+    <bendpoint x="1055" y="1745"/>    
+    <bendpoint x="1055" y="1300"/>    
+    <bendpoint x="1055" y="909"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <association id="85">    
+    <bendpoint x="1423" y="2100"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="86" name="triggerEvent"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="88">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

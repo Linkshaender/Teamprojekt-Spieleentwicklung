@@ -80,8 +80,8 @@ public class InputHandler implements InputProviderListener {
 	}
 	
 	private void handleAttacks() {
-		/*if(provider.isCommandControlDown(attack))
-			charakter.attack();*/
+		if(provider.isCommandControlPressed(attack))
+			charakter.attack();
 	}
 	
 	private void handleInteractions() {

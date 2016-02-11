@@ -20,6 +20,15 @@ public class Charakter {
 	private String name;
 	private float x = 0;
 	private float y = 0;
+	private float gegnerX = 100; //Test für Gegnerposition
+	private float gegnerY = 100; //Test für Gegnerposition
+	private int kampfdistanz = 30; //Abstand von Spieler und Gegner im Kampf
+	private int maxAngriffsdistanzX = 100;
+	private int maxAngriffsdistanzY = 100;
+	private int waffenStaminaverbrauch = 10; //Test für Waffenstaminaverbrauch
+	private int waffenSchaden = 15; //Test für Waffenschaden
+	private int gegnerLeben = 650; //Test für Gegnerleben
+	private int stamina = 1000;
 	private int breite = 47;
 	private int hoehe = 48;
 	private int animationsGeschw = 99;
@@ -29,7 +38,7 @@ public class Charakter {
 	//private Input input;
 	private SpriteSheet laufSprite;
 	private Inventar inventar = new Inventar();
-	
+
 	private Spielwelt spielwelt;
 	private Shape collisionShape;
 	private int collisionXOffset = 5;
@@ -37,11 +46,11 @@ public class Charakter {
 	public enum Richtung {
 		RUNTER, LINKS, RECHTS, HOCH
 	}
-	
+
 	public Charakter(String name) {
 		this(name, 0, 0, null);
 	}
-	
+
 	public Charakter(String name, float x, float y, Spielwelt spielwelt) {
 		this.name = name;
 		this.x = x;
@@ -65,10 +74,10 @@ public class Charakter {
 	}	
 
 	public void renderCharakter() {
-			zeichne();
-		
+		zeichne();
+
 	}
-	
+
 	public void renderInventar(GameContainer container, Graphics g) throws SlickException {
 		inventar.render(container, g);
 	}
@@ -107,13 +116,13 @@ public class Charakter {
 		}
 		else bewegungsAnimation.get(3).stop();	
 	}
-	*/
-	
+	 */
+
 	//xDir = 1 -> bewegung "nach rechts". xDir = -1 -> "nach links. yDir = -1 -> "nach oben". yDir = 1 -> "nach unten".
 	public void move(int xDir, int yDir) {
 		float xOffset = xDir * bewegungsGeschw;
 		float yOffset = yDir * bewegungsGeschw;
-		
+
 		collisionShape.setX(collisionShape.getX()+xOffset);
 		if(spielwelt.checkCollision(collisionShape))
 			collisionShape.setX(collisionShape.getX()-xOffset);
@@ -184,19 +193,19 @@ public class Charakter {
 		}		
 
 	}
-	
+
 	public void setLocation(Location destination) {
 		this.x = destination.getX();
 		this.y = destination.getY();
 		this.collisionShape.setLocation(destination.getX()+collisionXOffset, destination.getY());
 		changeSpielwelt(destination.getSpielwelt());
 	}
-	
+
 
 	public Spielwelt getSpielwelt() {
 		return spielwelt;
 	}
-	
+
 	public void changeSpielwelt(Spielwelt destinationWelt) {
 		if(destinationWelt != null && !destinationWelt.equals(spielwelt)) {
 			destinationWelt.setCharakter(this);
@@ -204,7 +213,7 @@ public class Charakter {
 			this.spielwelt = destinationWelt;
 		}
 	}
-	
+
 	public Shape getCollisionShape() {
 		return collisionShape;
 	}
@@ -216,7 +225,7 @@ public class Charakter {
 	public float getY() {
 		return y;
 	}
-	
+
 	public boolean isLookingInDirectionOf(Shape shape) {
 		boolean lookingInDirection = true;
 		switch(richtung) {
@@ -239,7 +248,7 @@ public class Charakter {
 		}
 		return lookingInDirection;
 	}
-	
+
 	public boolean isInNearOf(Shape shape, int range) {
 		boolean pointIsX = true;
 		boolean isInNear = false;
@@ -259,6 +268,52 @@ public class Charakter {
 			}
 		}
 		return false;
+	}
+
+	public void attack() {
+
+		if(stamina > 0){
+			stamina = stamina - waffenStaminaverbrauch; //Stamina Abzug bei Angriff
+
+			if(x > gegnerX - maxAngriffsdistanzX && x < gegnerX + maxAngriffsdistanzX && y < gegnerY + maxAngriffsdistanzY && y > gegnerY - maxAngriffsdistanzY ){  //Prüfen ob Gegner nahe genug für Angiff ist
+
+				while(x > gegnerX + kampfdistanz){
+					move(-1,0);
+
+
+				}
+
+				while(x < gegnerX - kampfdistanz){
+					move(1,0);
+				}
+
+				while(y < gegnerY - kampfdistanz){
+					move(0,1);
+				}
+
+				while(y > gegnerY + kampfdistanz){
+					move(0,-1);
+				}   //Automatisches bewegen des Charakters an den Gegner
+
+				gegnerLeben = gegnerLeben - waffenSchaden;
+
+				System.out.println("Stamina:"+stamina);
+				System.out.println("Gegner:"+gegnerLeben);
+				if(gegnerLeben <= 0){
+					System.out.println("Tot");
+					
+
+				}
+			}
+		}
+	}
+
+	public void zeichneTestgegner(Graphics g) {
+
+		g.setColor(Color.red);
+		g.drawOval(100, 130, 20, 20);
+		// TODO Auto-generated method stub
+
 	}
 
 	/*@Override

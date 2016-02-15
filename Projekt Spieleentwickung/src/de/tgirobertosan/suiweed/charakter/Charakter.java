@@ -1,6 +1,9 @@
 package de.tgirobertosan.suiweed.charakter;
 import java.util.ArrayList;
 
+
+import java.util.TimerTask;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -13,6 +16,7 @@ import org.newdawn.slick.geom.Shape;
 import de.tgirobertosan.suiweed.spielwelt.Location;
 import de.tgirobertosan.suiweed.spielwelt.Spielwelt;
 
+import java.util.Timer;
 
 
 public class Charakter {
@@ -22,17 +26,19 @@ public class Charakter {
 	private float y = 0;
 	private float gegnerX = 100; //Test für Gegnerposition
 	private float gegnerY = 100; //Test für Gegnerposition
-	private int kampfdistanz = 30; //Abstand von Spieler und Gegner im Kampf
+	private int kampfdistanz = 10; //Abstand von Spieler und Gegner im Kampf
 	private int maxAngriffsdistanzX = 100;
 	private int maxAngriffsdistanzY = 100;
 	private int waffenStaminaverbrauch = 10; //Test für Waffenstaminaverbrauch
 	private int waffenSchaden = 15; //Test für Waffenschaden
 	private int gegnerLeben = 650; //Test für Gegnerleben
-	private int stamina = 1000;
+	private int stamina = 100;// aktuelle Stamina
+	private int maxStamina = 100; // maximale Stamina für den Charakter
 	private int breite = 47;
 	private int hoehe = 48;
 	private int animationsGeschw = 99;
 	private int bewegungsGeschw = 1;
+	private boolean timerLaeuft = false;
 	private Richtung richtung = Richtung.RUNTER;
 	private ArrayList<Animation> bewegungsAnimation = new ArrayList<Animation>();
 	//private Input input;
@@ -42,6 +48,8 @@ public class Charakter {
 	private Spielwelt spielwelt;
 	private Shape collisionShape;
 	private int collisionXOffset = 5;
+
+	Timer timer = new Timer();
 
 	public enum Richtung {
 		RUNTER, LINKS, RECHTS, HOCH
@@ -272,6 +280,12 @@ public class Charakter {
 
 	public void attack() {
 
+		if(timerLaeuft == false){
+
+			starteStaminaTimer();
+			timerLaeuft = true;
+		}
+
 		if(stamina > 0){
 			stamina = stamina - waffenStaminaverbrauch; //Stamina Abzug bei Angriff
 
@@ -297,11 +311,11 @@ public class Charakter {
 
 				gegnerLeben = gegnerLeben - waffenSchaden;
 
-				System.out.println("Stamina:"+stamina);
+
 				System.out.println("Gegner:"+gegnerLeben);
 				if(gegnerLeben <= 0){
 					System.out.println("Tot");
-					
+
 
 				}
 			}
@@ -313,6 +327,20 @@ public class Charakter {
 		g.setColor(Color.red);
 		g.drawOval(100, 130, 20, 20);
 		// TODO Auto-generated method stub
+
+	}
+
+	public void starteStaminaTimer(){
+
+		timer.scheduleAtFixedRate(new TimerTask() { //Timer für die Staminaregeneration
+			@Override
+			public void run() {
+				if(stamina < maxStamina){
+					stamina = stamina + 1;
+					System.out.println("Stamina:"+" "+stamina);
+				}
+			}
+		}, 1000, 1000);
 
 	}
 

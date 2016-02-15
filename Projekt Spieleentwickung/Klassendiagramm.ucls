@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="de.tgirobertosan.suiweed.Kontrolle" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/Kontrolle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="192" x="373" y="176"/>    
+    <position height="135" width="192" x="1237" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="de.tgirobertosan.suiweed.Main" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/Main.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="373" y="37"/>    
+    <position height="99" width="113" x="1237" y="770"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="de.tgirobertosan.suiweed.SpielState" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/SpielState.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="296" x="705" y="909"/>    
+    <position height="207" width="296" x="815" y="1318"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -31,7 +31,7 @@
   <class id="4" language="java" name="de.tgirobertosan.suiweed.charakter.Charakter" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/charakter/Charakter.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="783" width="388" x="663" y="2293"/>    
+    <position height="783" width="388" x="532" y="2154"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -42,7 +42,7 @@
     project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/charakter/InputHandler.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="405" width="280" x="745" y="1300"/>    
+    <position height="405" width="280" x="532" y="1709"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -52,7 +52,7 @@
   <class id="6" language="java" name="de.tgirobertosan.suiweed.charakter.Inventar" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/charakter/Inventar.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="639" width="274" x="349" y="3116"/>    
+    <position height="639" width="274" x="218" y="2977"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -62,7 +62,7 @@
   <class id="7" language="java" name="de.tgirobertosan.suiweed.gui.MenuState" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/gui/MenuState.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="351" width="296" x="41" y="909"/>    
+    <position height="351" width="296" x="1193" y="1318"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -71,7 +71,7 @@
   </class>  
   <class id="8" language="java" name="de.tgirobertosan.suiweed.items.Waffe" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/items/Waffe.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="139" x="349" y="3795"/>    
+    <position height="117" width="139" x="218" y="3656"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -82,7 +82,7 @@
     project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/charakter/Charakter.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="153" width="155" x="663" y="3116"/>    
+    <position height="153" width="155" x="532" y="2977"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -92,7 +92,7 @@
   <class id="10" language="java" name="de.tgirobertosan.suiweed.spielwelt.Location" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/Location.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="279" width="292" x="1072" y="3116"/>    
+    <position height="261" width="292" x="1174" y="2977"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -103,7 +103,7 @@
     project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/SoundOnSpielwelt.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="189" width="223" x="377" y="909"/>    
+    <position height="189" width="223" x="64" y="1318"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -113,7 +113,7 @@
   <class id="12" language="java" name="de.tgirobertosan.suiweed.spielwelt.Spielwelt" project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/Spielwelt.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="693" width="326" x="1046" y="176"/>    
+    <position height="693" width="326" x="754" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -124,7 +124,7 @@
     project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/trigger/LocatedSound.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="135" width="268" x="1125" y="2100"/>    
+    <position height="135" width="346" x="104" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -135,7 +135,7 @@
     project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/trigger/Teleport.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="153" width="340" x="724" y="2100"/>    
+    <position height="153" width="340" x="857" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -146,7 +146,7 @@
     project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/trigger/Trigger.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="315" width="286" x="1109" y="1745"/>    
+    <position height="315" width="286" x="447" y="770"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -157,374 +157,374 @@
     project="Projekt Spieleentwickung" 
     file="/Projekt Spieleentwickung/src/de/tgirobertosan/suiweed/spielwelt/trigger/Trigger.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="153" width="180" x="1276" y="2293"/>    
+    <position height="171" width="180" x="553" y="1318"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <dependency id="17">    
-    <bendpoint x="672" y="1300"/>    
-    <bendpoint x="672" y="1745"/>    
-    <bendpoint x="672" y="2100"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <association id="18">    
-    <bendpoint x="1139" y="909"/>    
-    <bendpoint x="1139" y="1300"/>    
-    <bendpoint x="1281" y="1541"/>    
-    <bendpoint x="1340" y="1647"/>    
-    <bendpoint x="1376" y="1695"/>    
-    <bendpoint x="1384" y="1715"/>    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="19" name="interactionTriggers">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="20" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="22" name="waffe">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="23" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
-    <bendpoint x="1081" y="2293"/>    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="25" name="destination">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="26" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="27">    
-    <bendpoint x="693" y="1745"/>    
-    <bendpoint x="693" y="2100"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="28" name="charakter">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="29" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="30">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <association id="31">    
-    <bendpoint x="1486" y="2293"/>    
-    <bendpoint x="1486" y="2100"/>    
-    <bendpoint x="1486" y="1745"/>    
-    <bendpoint x="1486" y="1300"/>    
-    <bendpoint x="1486" y="909"/>    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="32" name="spielwelt">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="33" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="34">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <association id="35">    
-    <bendpoint x="630" y="909"/>    
-    <bendpoint x="630" y="1300"/>    
-    <bendpoint x="630" y="1745"/>    
-    <bendpoint x="630" y="2100"/>    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="36" name="charakter">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="37" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="38">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <association id="39">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="40" name="spielState">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="41" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="42">    
-    <bendpoint x="1094" y="2100"/>    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <nesting id="43">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="9"/>  
-  </nesting>  
-  <dependency id="44">    
-    <bendpoint x="714" y="1745"/>    
-    <bendpoint x="714" y="1300"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <association id="45">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="46" name="loopedSounds">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="47" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="48">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <dependency id="49">    
-    <bendpoint x="1465" y="909"/>    
-    <bendpoint x="1465" y="1300"/>    
-    <bendpoint x="1465" y="1745"/>    
-    <bendpoint x="1465" y="2100"/>    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <dependency id="50">    
-    <bendpoint x="1055" y="1745"/>    
-    <bendpoint x="1055" y="1300"/>    
-    <bendpoint x="1055" y="909"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <dependency id="51">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="52">    
-    <bendpoint x="1031" y="909"/>    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <association id="53">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="54" name="inputHandler">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="55" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="56">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="57" name="testSound">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="58" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="59">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <association id="60">    
-    <bendpoint x="1423" y="2100"/>    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="61" name="triggerEvent">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="62" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="63">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <dependency id="64">    
-    <bendpoint x="1076" y="1745"/>    
-    <bendpoint x="1076" y="1300"/>    
-    <bendpoint x="1076" y="909"/>    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <association id="65">    
+  <association id="17">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="66" name="inventar">        
+      <attribute id="18" name="inventar">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="67" minimum="0" maximum="1">        
+      <multiplicity id="19" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="68">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="69">    
-    <bendpoint x="529" y="1300"/>    
-    <bendpoint x="529" y="1745"/>    
-    <bendpoint x="529" y="2100"/>    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <association id="70">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="71" name="richtung">        
+  <association id="20">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="21" name="charakter">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="72" minimum="0" maximum="1">        
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="24" name="initTriggers">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="26">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <association id="27">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="28" name="richtung">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="73">    
-    <bendpoint x="651" y="2100"/>    
-    <bendpoint x="651" y="1745"/>    
-    <bendpoint x="651" y="1300"/>    
-    <bendpoint x="651" y="909"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="74" name="spielwelt">        
+  <dependency id="30">    
+    <bendpoint x="306" y="1709"/>    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="31">    
+    <bendpoint x="374" y="770"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <association id="32">    
+    <bendpoint x="1162" y="1318"/>    
+    <bendpoint x="1183" y="1709"/>    
+    <bendpoint x="1183" y="2154"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="33" name="destination">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="75" minimum="0" maximum="1">        
+      <multiplicity id="34" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="76">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="77" name="sound"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
+  <association id="35">    
+    <bendpoint x="52" y="770"/>    
+    <bendpoint x="52" y="1125"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="36" name="loopedSounds">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="79">    
-    <bendpoint x="1097" y="909"/>    
-    <bendpoint x="1097" y="1300"/>    
-    <bendpoint x="1104" y="1523"/>    
-    <bendpoint x="1092" y="1636"/>    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="80" name="initTriggers">        
+  <dependency id="38">    
+    <bendpoint x="868" y="770"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <association id="39">    
+    <bendpoint x="1540" y="2154"/>    
+    <bendpoint x="1540" y="1709"/>    
+    <bendpoint x="1540" y="1318"/>    
+    <bendpoint x="1540" y="1125"/>    
+    <bendpoint x="1540" y="770"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="40" name="spielwelt">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="81" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="82">    
-    <bendpoint x="1444" y="2100"/>    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="16"/>  
-  </nesting>  
-  <dependency id="83">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <generalization id="84">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <dependency id="85">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <dependency id="86">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="14"/>  
-  </dependency>  
-  <association id="87">    
-    <bendpoint x="1118" y="909"/>    
-    <bendpoint x="1118" y="1300"/>    
-    <bendpoint x="1248" y="1528"/>    
-    <bendpoint x="1316" y="1672"/>    
-    <bendpoint x="1261" y="1702"/>    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="88" name="locationTriggers">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="89" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="90">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <association id="91">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="92" name="spielWelt">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="93" minimum="0" maximum="1">        
+      <multiplicity id="41" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="94">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="10"/>  
+  <dependency id="42">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="16"/>  
   </dependency>  
+  <dependency id="43">    
+    <bendpoint x="327" y="1318"/>    
+    <bendpoint x="327" y="1709"/>    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="44">    
+    <bendpoint x="784" y="1318"/>    
+    <bendpoint x="784" y="1125"/>    
+    <bendpoint x="784" y="770"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="45">    
+    <bendpoint x="522" y="1318"/>    
+    <bendpoint x="522" y="1125"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="46">    
+    <bendpoint x="395" y="770"/>    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <generalization id="47">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <association id="48">    
+    <bendpoint x="826" y="1125"/>    
+    <bendpoint x="826" y="770"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="49" name="spielWelt">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="50" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="52" name="waffe">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="53" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="54">    
+    <bendpoint x="564" y="1125"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="16"/>  
+  </nesting>  
+  <association id="55">    
+    <bendpoint x="1162" y="1709"/>    
+    <bendpoint x="1519" y="1318"/>    
+    <bendpoint x="1519" y="1125"/>    
+    <bendpoint x="1519" y="770"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="56" name="spielwelt">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="59" name="inputHandler">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="60" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="61">    
+    <bendpoint x="763" y="770"/>    
+    <bendpoint x="763" y="1125"/>    
+    <bendpoint x="763" y="1318"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="62">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="63">    
+    <bendpoint x="842" y="1709"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="64">    
+    <bendpoint x="416" y="770"/>    
+    <bendpoint x="480" y="1125"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <association id="65">    
+    <bendpoint x="73" y="770"/>    
+    <bendpoint x="73" y="1125"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="66" name="testSound">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="67" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="68">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="69" name="locationTriggers">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="70" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="71">    
+    <bendpoint x="543" y="1125"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="72" name="triggerEvent">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="73" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="74">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="75">    
+    <bendpoint x="31" y="770"/>    
+    <bendpoint x="31" y="1125"/>    
+    <bendpoint x="31" y="1318"/>    
+    <bendpoint x="31" y="1709"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="76" name="charakter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="77" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="78">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="79">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="80">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="81">    
+    <bendpoint x="805" y="770"/>    
+    <bendpoint x="805" y="1125"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="82" name="spielState">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="85" name="sound">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="86" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="87">    
+    <bendpoint x="847" y="770"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <generalization id="88">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <dependency id="89">    
+    <bendpoint x="501" y="1125"/>    
+    <bendpoint x="501" y="1318"/>    
+    <bendpoint x="501" y="1709"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <nesting id="90">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </nesting>  
+  <dependency id="91">    
+    <bendpoint x="1141" y="1318"/>    
+    <bendpoint x="1141" y="1709"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="92">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="93" name="interactionTriggers">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="94" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

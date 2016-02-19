@@ -10,6 +10,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.RoundedRectangle;
 import org.newdawn.slick.geom.Shape;
 
@@ -47,7 +48,8 @@ public class Charakter {
 
 	private Spielwelt spielwelt;
 	private Shape collisionShape;
-	private int collisionXOffset = 5;
+	private int collisionXOffset = 1+breite/2;
+	private int collisionYOffset = 15+hoehe/2;
 
 	Timer timer = new Timer();
 
@@ -69,7 +71,7 @@ public class Charakter {
 	public void init(GameContainer container) throws SlickException {
 
 		laufSprite = new SpriteSheet("res/character/sprites/lauf.png", 141, 192);
-		this.collisionShape = new RoundedRectangle(x+collisionXOffset, y, breite-10, hoehe, 10);
+		this.collisionShape = new Circle(x+collisionXOffset, y+collisionYOffset, breite/4);
 		initialisiereAnimation();
 		inventar.init(container);
 		//input = container.getInput();
@@ -83,7 +85,6 @@ public class Charakter {
 
 	public void renderCharakter() {
 		zeichne();
-
 	}
 
 	public void renderInventar(GameContainer container, Graphics g) throws SlickException {
@@ -205,7 +206,8 @@ public class Charakter {
 	public void setLocation(Location destination) {
 		this.x = destination.getX();
 		this.y = destination.getY();
-		this.collisionShape.setLocation(destination.getX()+collisionXOffset, destination.getY());
+		this.collisionShape.setCenterX(x+collisionXOffset);
+		this.collisionShape.setCenterY(y+collisionYOffset);
 		changeSpielwelt(destination.getSpielwelt());
 	}
 

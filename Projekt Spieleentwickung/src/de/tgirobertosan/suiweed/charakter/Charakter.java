@@ -1,4 +1,5 @@
 package de.tgirobertosan.suiweed.charakter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -14,6 +15,7 @@ import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.RoundedRectangle;
 import org.newdawn.slick.geom.Shape;
 
+import de.tgirobertosan.suiweed.gui.Dialogfenster;
 import de.tgirobertosan.suiweed.spielwelt.Location;
 import de.tgirobertosan.suiweed.spielwelt.Spielwelt;
 
@@ -53,6 +55,8 @@ public class Charakter {
 
 	Timer timer = new Timer();
 
+	private Dialogfenster dialogfenster;
+	
 	public enum Richtung {
 		RUNTER, LINKS, RECHTS, HOCH
 	}
@@ -68,7 +72,7 @@ public class Charakter {
 		this.spielwelt = spielwelt;
 	}
 
-	public void init(GameContainer container) throws SlickException {
+	public void init(GameContainer container) throws SlickException, IOException{
 
 		laufSprite = new SpriteSheet("res/character/sprites/lauf.png", 141, 192);
 		this.collisionShape = new Circle(x+collisionXOffset, y+collisionYOffset, breite/4);
@@ -76,7 +80,12 @@ public class Charakter {
 		inventar.init(container);
 		//input = container.getInput();
 		//input.addKeyListener(this);
+	
+		dialogfenster = new Dialogfenster(container, 1);
+		dialogfenster.aktualisiereDialogfenster(1);
 	}
+	
+	
 
 	public void update(GameContainer arg0, int arg1) throws SlickException {
 		inventar.update(arg0, arg1);
@@ -85,10 +94,12 @@ public class Charakter {
 
 	public void renderCharakter() {
 		zeichne();
+		
 	}
 
 	public void renderInventar(GameContainer container, Graphics g) throws SlickException {
 		inventar.render(container, g);
+		dialogfenster.render(g);
 	}
 
 	/*
@@ -345,6 +356,8 @@ public class Charakter {
 		}, 1000, 1000);
 
 	}
+	
+	
 
 	/*@Override
 	public void inputEnded() {

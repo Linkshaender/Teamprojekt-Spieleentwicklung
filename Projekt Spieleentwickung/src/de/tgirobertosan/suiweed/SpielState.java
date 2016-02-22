@@ -1,5 +1,7 @@
 package de.tgirobertosan.suiweed;
 
+import java.io.IOException;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -28,7 +30,12 @@ public class SpielState extends BasicGameState {
 		spielWelt.init(this);
 
 		if(spielWelt.getCharakter() != null)
-			spielWelt.getCharakter().init(container);
+			try {
+				spielWelt.getCharakter().init(container);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	@Override

@@ -137,6 +137,7 @@ public class Spielwelt extends TiledMapPlus {
 		g.translate(-transX, -transY);
 		if(charakter != null)
 			charakter.renderInventar(container, g);
+		
 	}
 	
 	public void renderGroundLayers() {

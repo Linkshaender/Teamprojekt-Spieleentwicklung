@@ -26,6 +26,7 @@ public class InputHandler implements InputProviderListener {
 	private Command down = new BasicCommand("down");
 
 	private Command leftClick = new BasicCommand("leftClick");
+
 	
 	private Charakter charakter;
 	

@@ -57,7 +57,6 @@ public class MenuState extends BasicGameState{
 		mouseOverArea.get(1).setMouseDownImage(new Image("res/gui/images/ende.png"));
 
 
-		hintergrundmusik.play();
 
 	}
 

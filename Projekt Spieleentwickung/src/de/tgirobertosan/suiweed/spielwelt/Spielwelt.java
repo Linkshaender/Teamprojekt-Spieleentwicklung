@@ -14,6 +14,7 @@ import org.newdawn.slick.tiled.TileOnLayer;
 import org.newdawn.slick.tiled.TileSet;
 import org.newdawn.slick.tiled.TiledMapPlus;
 
+import de.tgirobertosan.suiweed.Kampfsystem;
 import de.tgirobertosan.suiweed.SpielState;
 import de.tgirobertosan.suiweed.charakter.Charakter;
 import de.tgirobertosan.suiweed.spielwelt.trigger.Dialogzeile;
@@ -54,6 +55,7 @@ public class Spielwelt extends TiledMapPlus {
 	
 	//Testsound
 	private SoundOnSpielwelt testSound = new SoundOnSpielwelt("res/spielwelt/audio/kebab.ogg", -1, -1, 1);
+	private Kampfsystem kampfsystem = new Kampfsystem();
 
 	public Spielwelt(String path) throws SlickException {
 		super(path);
@@ -61,12 +63,14 @@ public class Spielwelt extends TiledMapPlus {
 		this.mapWidth = getWidth()*getTileWidth();
 		this.mapHeight = getHeight()*getTileHeight();
 		this.maxDistanceQuadriert = (float) (Math.pow(mapWidth, 2)+Math.pow(mapHeight, 2));
+		
 	}
 	
 	public void init(SpielState spielState) throws SlickException {
 		this.spielState = spielState;
 		addObjects();
 		addTileCollisions();
+		charakter.gibKampfsystem(kampfsystem);
 	}
 
 	/**

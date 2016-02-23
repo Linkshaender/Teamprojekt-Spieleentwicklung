@@ -14,6 +14,7 @@ import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Shape;
 
+import de.tgirobertosan.suiweed.Kampfsystem;
 import de.tgirobertosan.suiweed.gui.Dialogfenster;
 import de.tgirobertosan.suiweed.spielwelt.Location;
 import de.tgirobertosan.suiweed.spielwelt.Spielwelt;
@@ -48,13 +49,14 @@ public class Charakter {
 
 	private Spielwelt spielwelt;
 	private Shape collisionShape;
+	private Kampfsystem kampfsystem;
 	private int collisionXOffset = 1+breite/2;
 	private int collisionYOffset = 15+hoehe/2;
 
 	Timer timer = new Timer();
 
 	private Dialogfenster dialogfenster;
-	
+
 	public enum Richtung {
 		RUNTER, LINKS, RECHTS, HOCH
 	}
@@ -76,12 +78,12 @@ public class Charakter {
 		this.collisionShape = new Circle(x+collisionXOffset, y+collisionYOffset, breite/4);
 		initialisiereAnimation();
 		inventar.init(container);
-	
+
 		dialogfenster = new Dialogfenster(container, 1);
 		//dialogfenster.aktualisiereDialogfenster(1);
 	}
-	
-	
+
+
 
 	public void update(GameContainer arg0, int arg1) throws SlickException {
 		inventar.update(arg0, arg1);
@@ -89,7 +91,7 @@ public class Charakter {
 
 	public void renderCharakter() {
 		zeichne();
-		
+
 	}
 
 	public void renderInventar(GameContainer container, Graphics g) throws SlickException {
@@ -260,11 +262,13 @@ public class Charakter {
 
 		if(stamina > 0){
 			stamina = stamina - waffenStaminaverbrauch; //Stamina Abzug bei Angriff
-
 			
-			}
+			kampfsystem.gegnerAngreifen(waffenSchaden);
+
+
 		}
-	
+	}
+
 
 	public void zeichneTestgegner(Graphics g) {
 
@@ -287,9 +291,15 @@ public class Charakter {
 		}, 1000, 1000);
 
 	}
-	
+
 	public Dialogfenster getDialogfenster() {
 		return this.dialogfenster;
 	}
-	
+
+	public void gibKampfsystem(Kampfsystem gegebenesKampfsystem) {
+
+		kampfsystem = gegebenesKampfsystem;
+
+	}
+
 }

@@ -86,7 +86,7 @@ public class InputHandler implements InputProviderListener {
 	}
 	
 	private void handleInteractions() {
-		if(provider.isCommandControlDown(interact))
+		if(provider.isCommandControlPressed(interact))
 			for(Trigger trigger : charakter.getSpielwelt().getInteractionTriggers())
 				trigger.checkAndFire(charakter);
 	}

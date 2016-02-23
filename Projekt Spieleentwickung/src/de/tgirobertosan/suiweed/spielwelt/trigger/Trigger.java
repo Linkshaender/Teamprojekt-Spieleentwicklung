@@ -65,7 +65,8 @@ public abstract class Trigger {
 				fireTrigger(charakter);
 			break;
 		case INTERACT:
-			if(charakter.getCollisionShape().contains(triggerArea) || (charakter.isLookingInDirectionOf(triggerArea) && charakter.isInNearOf(triggerArea, interactionRange)))
+			if(triggerArea.contains(charakter.getCollisionShape()) || charakter.getCollisionShape().contains(triggerArea) || 
+					(charakter.isLookingInDirectionOf(triggerArea) && charakter.isInNearOf(triggerArea, interactionRange)))
 				fireTrigger(charakter);
 			break;
 		case INIT:

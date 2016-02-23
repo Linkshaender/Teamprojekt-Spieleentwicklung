@@ -12,7 +12,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Circle;
-import org.newdawn.slick.geom.RoundedRectangle;
 import org.newdawn.slick.geom.Shape;
 
 import de.tgirobertosan.suiweed.gui.Dialogfenster;
@@ -44,7 +43,6 @@ public class Charakter {
 	private boolean timerLaeuft = false;
 	private Richtung richtung = Richtung.RUNTER;
 	private ArrayList<Animation> bewegungsAnimation = new ArrayList<Animation>();
-	//private Input input;
 	private SpriteSheet laufSprite;
 	private Inventar inventar = new Inventar();
 
@@ -78,18 +76,15 @@ public class Charakter {
 		this.collisionShape = new Circle(x+collisionXOffset, y+collisionYOffset, breite/4);
 		initialisiereAnimation();
 		inventar.init(container);
-		//input = container.getInput();
-		//input.addKeyListener(this);
 	
 		dialogfenster = new Dialogfenster(container, 1);
-		dialogfenster.aktualisiereDialogfenster(1);
+		//dialogfenster.aktualisiereDialogfenster(1);
 	}
 	
 	
 
 	public void update(GameContainer arg0, int arg1) throws SlickException {
 		inventar.update(arg0, arg1);
-		//bewege();
 	}	
 
 	public void renderCharakter() {
@@ -101,42 +96,6 @@ public class Charakter {
 		inventar.render(container, g);
 		dialogfenster.render(g);
 	}
-
-	/*
-	private void bewege(){
-
-		if(input.isKeyDown(Input.KEY_S)){
-			bewegungsAnimation.get(0).start();
-			y++;
-			richtung = "Runter";
-		}
-		else bewegungsAnimation.get(0).stop();
-
-
-		if(input.isKeyDown(Input.KEY_A)){
-			bewegungsAnimation.get(1).start();
-			x--;
-			richtung = "Links";
-		}
-		else bewegungsAnimation.get(1).stop();
-
-
-		if(input.isKeyDown(Input.KEY_D)){
-			bewegungsAnimation.get(2).start();
-			x++;
-			richtung = "Rechts";
-		}
-		else bewegungsAnimation.get(2).stop();
-
-
-		if(input.isKeyDown(Input.KEY_W)){
-			bewegungsAnimation.get(3).start();
-			y--;
-			richtung = "Hoch";
-		}
-		else bewegungsAnimation.get(3).stop();	
-	}
-	 */
 
 	//xDir = 1 -> bewegung "nach rechts". xDir = -1 -> "nach links. yDir = -1 -> "nach oben". yDir = 1 -> "nach unten".
 	public void move(int xDir, int yDir) {
@@ -276,10 +235,10 @@ public class Charakter {
 		for(float point : shape.getPoints()) {
 			if(pointIsX) {
 				pointIsX = false;
-				if(point > collisionShape.getCenterX()+range || point < collisionShape.getCenterX()-range)
-					isInNear = false;
-				else
+				if(point >= collisionShape.getCenterX()-range && point <= collisionShape.getCenterX()+range)
 					isInNear = true;
+				else
+					isInNear = false;
 			} else {
 				pointIsX = true;
 				if(!isInNear)
@@ -357,42 +316,8 @@ public class Charakter {
 
 	}
 	
+	public Dialogfenster getDialogfenster() {
+		return this.dialogfenster;
+	}
 	
-
-	/*@Override
-	public void inputEnded() {
-
-
-	}
-
-	@Override
-	public void inputStarted() {
-
-
-	}
-
-	@Override
-	public boolean isAcceptingInput() {
-
-		return true;
-	}
-
-	@Override
-	public void setInput(Input arg0) {
-
-
-	}
-
-	@Override
-	public void keyPressed(int arg0, char arg1) {
-
-
-
-	}
-
-	@Override
-	public void keyReleased(int arg0, char arg1) {
-
-
-	}*/
 }

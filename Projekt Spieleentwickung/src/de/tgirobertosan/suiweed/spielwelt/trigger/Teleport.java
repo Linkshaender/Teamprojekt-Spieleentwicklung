@@ -35,7 +35,7 @@ public class Teleport extends Trigger {
 	@Override
 	public void fireTrigger(Charakter charakter) {
 		charakter.setLocation(destination);
-		System.out.println("FIRE!");
+		System.out.println("TELEPORT!");
 	}
 	
 	public Location getDestination() {

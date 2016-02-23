@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="43">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="51">
  <tileset firstgid="1" name="terrain" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
   <image source="../tilesets/terrain.png" width="1024" height="1024"/>
   <tile id="187">
@@ -65,12 +65,12 @@
  </layer>
  <layer name="onGround" width="50" height="35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WUQ6CMBBECTdDriEmwjXQk1hP4o9HMfEgTP/Q1EBo6c7Wfcl8kFAys2w3W1Xl8kzwzmvjdxk5Qh10kjYSyQg9oKu0kR+sqbPvoRvkoHsOUwuE+py9zmthqvO/EjMzc87b0D3IcdYwltCwd7ylDRjJYZ9rttdyEdq32GcXe4/P0eQ1Faz9s9e/YM1rGIbBQAMdoFbaSCRnqIcGaSORlJDjUn/m8M8acV85nNIcHo19NQHGOATQWBsAAA==
+   H4sIAAAAAAAAC+2W3Q3CMAyEq25GWQOQoGtQJmAEwiS8dBQkBun1iR8FtcIhPqf+pHtrq7NzcV1V5dIneOb+43cZ2UBbaKdtRMgRukEnbSNfmNPnMUMXKEDXHKYmiOWcvc9zYerzUpHMzJzzNnYPcrzrOFNY2Dse2gac5LDPtaXttec6gxkBsX2LfXaxZ/wVS15TwZqff50Fa72O4zxh/xeXzApqoLW2ESF76AC12kaElFBHV7/X0Rm93+GjjmC0jhGLuRoAg9y7CFgbAAA=
   </data>
  </layer>
  <layer name="top" width="50" height="35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3WsQ2AIBCFYSDRSdzLZWQPCt3DwsHEjgIKQ8Jxl/9LXkP1CORyzgEAtNqDdAPbDt+OJjH3PSvRZjX43x/pAgPU5lR5liZ91+1nr1v4HpeBWfVZQjsA+rE7AgAAAP1en/Pgl1gbAAA=
+   H4sIAAAAAAAAC+3WsQ2AIBCFYSDRSdzLZWQPC93DwkmcRDuJgYLEcNzl/5LXUL0LBHAOAKDVHKQb2Lb4cjSJT98tE21Gg+f9lC7QQO6eStfWTvd1qux1CM+x/3hXXf5Na0Mop5bkHECv+DsCOlh5w6zMAQDA1w2aNc5WWBsAAA==
   </data>
  </layer>
  <layer name="onTop" width="50" height="35">
@@ -91,6 +91,8 @@
   <object id="38" x="162" y="1062">
    <polygon points="0,0 -24,24 -28,3 -11,-23"/>
   </object>
+  <object id="44" x="874" y="544" width="11" height="32"/>
+  <object id="48" x="332" y="865" width="8" height="32"/>
  </objectgroup>
  <objectgroup name="objects">
   <object id="35" name="Hope" type="Charakter" x="512" y="256" width="32" height="64"/>
@@ -98,7 +100,7 @@
    <properties>
     <property name="Map" value="tilemap2.tmx"/>
     <property name="Range" value="50"/>
-    <property name="TriggerEvent" value="INTERACT"/>
+    <property name="TriggerEvent" value="ENTER"/>
     <property name="X" value="200"/>
     <property name="Y" value="240"/>
    </properties>
@@ -108,6 +110,22 @@
     <property name="Sound" value="res/spielwelt/audio/kebab.ogg"/>
     <property name="TriggerEvent" value="INIT"/>
    </properties>
+  </object>
+  <object id="46" name="Zeile 5 Dialogfenster" type="Dialogzeile" x="841" y="501" width="79" height="62">
+   <properties>
+    <property name="Line" value="5"/>
+    <property name="Range" value="32"/>
+    <property name="TriggerEvent" value="INTERACT"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="50" name="Zeile 4 Dialogfenster" type="Dialogzeile" x="296" y="824" width="79" height="62">
+   <properties>
+    <property name="Line" value="4"/>
+    <property name="Range" value="32"/>
+    <property name="TriggerEvent" value="INTERACT"/>
+   </properties>
+   <ellipse/>
   </object>
  </objectgroup>
 </map>

@@ -16,6 +16,7 @@ import org.newdawn.slick.tiled.TiledMapPlus;
 
 import de.tgirobertosan.suiweed.SpielState;
 import de.tgirobertosan.suiweed.charakter.Charakter;
+import de.tgirobertosan.suiweed.spielwelt.trigger.Dialogzeile;
 import de.tgirobertosan.suiweed.spielwelt.trigger.LocatedSound;
 import de.tgirobertosan.suiweed.spielwelt.trigger.Teleport;
 import de.tgirobertosan.suiweed.spielwelt.trigger.Trigger;
@@ -183,6 +184,8 @@ public class Spielwelt extends TiledMapPlus {
 						trigger = Teleport.getFromGroupObject(groupObject, null, spielState);
 					} else if(groupObject.type.equalsIgnoreCase("LocatedSound")) {
 						trigger = LocatedSound.getFromGroupObject(groupObject);
+					} else if(groupObject.type.equalsIgnoreCase("Dialogzeile")) {
+						trigger = Dialogzeile.getFromGroupObject(groupObject);
 					}
 					if(trigger == null)
 						continue;

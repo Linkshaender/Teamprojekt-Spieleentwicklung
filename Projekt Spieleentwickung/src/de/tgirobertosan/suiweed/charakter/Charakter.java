@@ -261,38 +261,10 @@ public class Charakter {
 		if(stamina > 0){
 			stamina = stamina - waffenStaminaverbrauch; //Stamina Abzug bei Angriff
 
-			if(x > gegnerX - maxAngriffsdistanzX && x < gegnerX + maxAngriffsdistanzX && y < gegnerY + maxAngriffsdistanzY && y > gegnerY - maxAngriffsdistanzY ){  //Prüfen ob Gegner nahe genug für Angiff ist
-
-				while(x > gegnerX + kampfdistanz){
-					move(-1,0);
-
-
-				}
-
-				while(x < gegnerX - kampfdistanz){
-					move(1,0);
-				}
-
-				while(y < gegnerY - kampfdistanz){
-					move(0,1);
-				}
-
-				while(y > gegnerY + kampfdistanz){
-					move(0,-1);
-				}   //Automatisches bewegen des Charakters an den Gegner
-
-				gegnerLeben = gegnerLeben - waffenSchaden;
-
-
-				System.out.println("Gegner:"+gegnerLeben);
-				if(gegnerLeben <= 0){
-					System.out.println("Tot");
-
-
-				}
+			
 			}
 		}
-	}
+	
 
 	public void zeichneTestgegner(Graphics g) {
 

@@ -53,8 +53,8 @@ public class MenuState extends BasicGameState{
 
 
 		mouseOverArea.add(1,new MouseOverArea(container, new Image("res/gui/images/ende.png"), new Rectangle(xButton, 200, breiteButton, hoeheButton)));
-		mouseOverArea.get(1).setMouseOverImage(new Image("res/gui/images/ende.png"));
-		mouseOverArea.get(1).setMouseDownImage(new Image("res/gui/images/ende.png"));
+		mouseOverArea.get(1).setMouseOverImage(new Image("res/gui/images/endeHover.png"));
+		mouseOverArea.get(1).setMouseDownImage(new Image("res/gui/images/endePressed.png"));
 
 
 

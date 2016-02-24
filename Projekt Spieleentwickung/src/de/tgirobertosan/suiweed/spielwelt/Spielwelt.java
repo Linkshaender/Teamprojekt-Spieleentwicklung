@@ -136,7 +136,6 @@ public class Spielwelt extends TiledMapPlus {
 		}
 		if(charakter != null) {
 			charakter.renderCharakter();
-			charakter.zeichneTestgegner(g);
 			g.draw(getCharakter().getCollisionShape());
 		}
 		
@@ -294,5 +293,11 @@ public class Spielwelt extends TiledMapPlus {
 		if(neueSpielwelt != null) {
 			spielState.changeSpielwelt(neueSpielwelt);
 		}
+	}
+	
+	public ArrayList<Gegner> getGegner(){
+		
+		return(gegner);
+		
 	}
 }

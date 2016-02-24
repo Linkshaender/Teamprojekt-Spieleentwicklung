@@ -61,7 +61,7 @@ public class InputHandler implements InputProviderListener {
 		provider.bindCommand(new ControllerDirectionControl(0, ControllerDirectionControl.UP), up);
 
 		provider.bindCommand(new KeyControl(Input.KEY_E), interact);
-		provider.bindCommand(new KeyControl(Input.KEY_SPACE), attack);
+		provider.bindCommand(new MouseButtonControl(Input.MOUSE_RIGHT_BUTTON), attack);
 		provider.bindCommand(new ControllerButtonControl(0, 1), attack);
 		
 		provider.bindCommand(new MouseButtonControl(Input.MOUSE_LEFT_BUTTON), leftClick);
@@ -81,6 +81,7 @@ public class InputHandler implements InputProviderListener {
 	}
 	
 	private void handleAttacks() {
+		
 		if(provider.isCommandControlPressed(attack))
 			charakter.attack();
 	}

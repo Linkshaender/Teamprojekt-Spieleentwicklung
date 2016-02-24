@@ -19,6 +19,7 @@ public class Gegner {
 	private boolean move;
 	private boolean verfolgen;
 	private float speed;
+	private int gegnerLeben = 20;
 	public Gegner(float x, float y){
 		this.x = x;
 		this.y = y;
@@ -103,5 +104,19 @@ public class Gegner {
 	}
 	public void setVerfolgen(boolean verfolgen){
 		this.verfolgen = verfolgen;
+	}
+	
+	public float getGegnerX(){
+		return(x);
+	}
+	
+	public float getGegnerY(){
+		return(y);
+	}
+	public int getGegnerLeben(){
+		return gegnerLeben;
+	}
+	public void setLeben(int gegnerLeben){
+		this.gegnerLeben = gegnerLeben;
 	}
 }

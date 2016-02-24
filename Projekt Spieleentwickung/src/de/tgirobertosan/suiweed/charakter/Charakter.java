@@ -263,20 +263,14 @@ public class Charakter {
 		if(stamina > 0){
 			stamina = stamina - waffenStaminaverbrauch; //Stamina Abzug bei Angriff
 			
-			kampfsystem.gegnerAngreifen(waffenSchaden);
+			kampfsystem.gegnerAngreifen(waffenSchaden,x,y,spielwelt);
 
 
 		}
 	}
 
 
-	public void zeichneTestgegner(Graphics g) {
-
-		g.setColor(Color.red);
-		g.drawOval(100, 130, 20, 20);
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	public void starteStaminaTimer(){
 

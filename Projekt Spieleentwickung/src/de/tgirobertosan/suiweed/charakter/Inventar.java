@@ -20,19 +20,19 @@ public class Inventar implements KeyListener, MouseListener {
 
 	//Attribute
 
-	private float x = 100;
-	private float y = 100;
-	private float slotX = x + 28;
-	private float slotY = y + 81;
-	private float slotBreite = 32;
-	private float slotHoehe = 32;
-	private float slotRandBreite = 4;
+	private float x = 111;
+	private float y = 109;
+	private float slotX = x + 65;
+	private float slotY = y + 473;
+	private float slotBreite = 30;
+	private float slotHoehe = 29;
+	private float slotRandBreite = 7, slotRandHoehe = 9.9f;
 	private Image inventar;
 	private boolean sichtbarkeit = false; //true = sichtbar, false = unsichtbar
 	private Shape inventarleiste;
 	private ArrayList<Shape> slots = new ArrayList<Shape>();
-	private byte slotSpaltenAnzahl = 4;
-	private byte slotZeilenAnzahl  = 6;
+	private byte slotSpaltenAnzahl = 8;
+	private byte slotZeilenAnzahl  = 4;
 	private Waffe waffe; //WAFFE IST NUR TEST ZWECK, INVENTAR SOLLTE GEGENSTAND HABEN!
 	private boolean waffeImInventar = false;
 	private Input input;
@@ -41,10 +41,10 @@ public class Inventar implements KeyListener, MouseListener {
 
 	public void init(GameContainer container) throws SlickException{
 		inventar = new Image("res/character/images/Inventar.png");
-		inventarleiste = new Rectangle(x, y, 339, 63);
+		inventarleiste = new Rectangle(x, y, 443, 175);
 
 		for(byte spalte = 0, zeile = 0; spalte < slotSpaltenAnzahl; spalte++){
-			slots.add(new Rectangle((spalte *slotBreite) + slotX + (spalte * slotRandBreite), (zeile*slotHoehe) + slotY+ (zeile * slotRandBreite), slotBreite, slotHoehe));
+			slots.add(new Rectangle((spalte *slotBreite) + slotX + (spalte * slotRandBreite), (zeile*slotHoehe) + slotY+ (zeile * slotRandHoehe), slotBreite, slotHoehe));
 
 			if(zeile  < slotZeilenAnzahl -1 && spalte == slotSpaltenAnzahl - 1){
 				zeile++;
@@ -68,10 +68,10 @@ public class Inventar implements KeyListener, MouseListener {
 	public void render(GameContainer arg0, Graphics g) throws SlickException {
 		zeichne(x, y);
 		g.setColor(Color.cyan);
-		/*g.draw(inventarleiste);
+		g.draw(inventarleiste);
 		for(int i = 0; i < slots.size();i++){
 			g.draw(slots.get(i));
-		}*/
+		}
 	}
 
 
@@ -146,7 +146,7 @@ public class Inventar implements KeyListener, MouseListener {
 
 				for(byte spalte = 0, zeile = 0, i = 0; i < slots.size(); spalte++, i++){
 
-					slots.get(i).setLocation((spalte *slotBreite) + slotX + (spalte*slotRandBreite), (zeile*slotHoehe) + slotY + (zeile * slotRandBreite));
+					slots.get(i).setLocation((spalte *slotBreite) + slotX + (spalte*slotRandBreite), (zeile*slotHoehe) + slotY + (zeile * slotRandHoehe));
 
 					if(zeile  < slotZeilenAnzahl -1 && spalte == slotSpaltenAnzahl - 1){
 						zeile++;

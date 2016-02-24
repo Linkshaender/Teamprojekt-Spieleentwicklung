@@ -1,5 +1,7 @@
 package de.tgirobertosan.suiweed.spielwelt;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 
 import org.newdawn.slick.GameContainer;
@@ -227,6 +229,15 @@ public class Spielwelt extends TiledMapPlus {
 			gegner.update();
 			gegner.schaueNachSpieler(charakter);
 		}
+		//Die Methode sortiert die Gegner in der ArrayList nach der Y-Position
+		Collections.sort(gegner, new Comparator<Gegner>() {
+
+			@Override
+			public int compare(Gegner o1, Gegner o2) {
+				// TODO Auto-generated method stub
+				return Float.compare(o1.getY(), o2.getY());
+			}
+		});
 	}
 	
 	public void playSoundAt(SoundOnSpielwelt sound) {

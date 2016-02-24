@@ -18,11 +18,11 @@ public class Gegner {
 	private Charakter spieler;
 	private boolean move;
 	private boolean verfolgen;
-
+	private float speed;
 	public Gegner(float x, float y){
 		this.x = x;
 		this.y = y;
-
+		speed = (float) (Math.random()+0.1);
 		try {
 			gegner = new Image("res/gegner/image/gegner.png");
 			sicht = new Circle(x + 20, y + 25, 150);
@@ -39,7 +39,6 @@ public class Gegner {
 
 	public void render(Graphics g){
 		g.drawImage(gegner, x, y);
-
 	}
 
 	public void update(){
@@ -50,10 +49,10 @@ public class Gegner {
 	}
 	private void bewegen(){
 		if(move){
-			x = (float) (x + 0.3);
+			x = (float) (x + speed);
 		}
 		else if(!move){
-			x = (float) (x - 0.3);
+			x = (float) (x - speed);
 		}
 		if(x >= startX + 15){
 			move = false;
@@ -65,16 +64,16 @@ public class Gegner {
 	}
 	public void verfolgen(){
 		if(x>=spieler.getX()){
-			x = x - 0.6f;
+			x = x - speed;
 		}
 		else if(x<spieler.getX()){
-			x = x + 0.6f;
+			x = x + speed;
 		}
 		if(y>=spieler.getY()){
-			y = y - 0.6f;
+			y = y - speed;
 		}
 		else if(y<spieler.getY()){
-			y = y + 0.6f;
+			y = y + speed;
 		}
 	}
 	public void schaueNachSpieler(Charakter spieler){

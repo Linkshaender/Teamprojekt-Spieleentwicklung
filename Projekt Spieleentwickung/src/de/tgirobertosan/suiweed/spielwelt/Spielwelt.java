@@ -50,6 +50,9 @@ public class Spielwelt extends TiledMapPlus {
 	private ArrayList<Trigger> interactionTriggers = new ArrayList<Trigger>();
 	private ArrayList<Trigger> locationTriggers = new ArrayList<Trigger>();
 	private ArrayList<Trigger> initTriggers = new ArrayList<Trigger>();
+	
+	private ArrayList<Gegner> gegner = new ArrayList<Gegner>();
+
 	private boolean checkInitTriggers = true;
 	private HashSet<SoundOnSpielwelt> loopedSounds = new HashSet<SoundOnSpielwelt>();
 	
@@ -126,7 +129,9 @@ public class Spielwelt extends TiledMapPlus {
 		g.translate(transX, transY);
 		renderGroundLayers();
 		
-		
+		for(Gegner gegner: gegner){
+			gegner.render(g);
+		}
 		if(charakter != null) {
 			charakter.renderCharakter();
 			charakter.zeichneTestgegner(g);
@@ -186,7 +191,9 @@ public class Spielwelt extends TiledMapPlus {
 						spielState.getInputHandler().setCharakter(charakter);
 					} else if(groupObject.type.equalsIgnoreCase("Teleport")) {
 						trigger = Teleport.getFromGroupObject(groupObject, null, spielState);
-					} else if(groupObject.type.equalsIgnoreCase("LocatedSound")) {
+					} else if(groupObject.type.equalsIgnoreCase("Gegner")) {
+						gegner.add(new Gegner(groupObject.x, groupObject.y));
+					}else if(groupObject.type.equalsIgnoreCase("LocatedSound")) {
 						trigger = LocatedSound.getFromGroupObject(groupObject);
 					} else if(groupObject.type.equalsIgnoreCase("Dialogzeile")) {
 						trigger = Dialogzeile.getFromGroupObject(groupObject);
@@ -212,6 +219,13 @@ public class Spielwelt extends TiledMapPlus {
 			testSound.setX(-transX+x);
 			testSound.setY(-transY+y);
 			playSoundAt(testSound);
+		}
+	}
+	
+	public void updateGegner(){
+		for(Gegner gegner: gegner){
+			gegner.update();
+			gegner.schaueNachSpieler(charakter);
 		}
 	}
 	

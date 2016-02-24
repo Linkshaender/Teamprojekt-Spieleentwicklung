@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="51">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" nextobjectid="53">
  <tileset firstgid="1" name="terrain" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
   <image source="../tilesets/terrain.png" width="1024" height="1024"/>
   <tile id="187">
@@ -127,5 +127,7 @@
    </properties>
    <ellipse/>
   </object>
+  <object id="51" name="BöserDude" type="Gegner" x="960" y="159" width="33" height="66"/>
+  <object id="52" name="BöserDude2" type="Gegner" x="1281" y="323" width="31" height="61"/>
  </objectgroup>
 </map>

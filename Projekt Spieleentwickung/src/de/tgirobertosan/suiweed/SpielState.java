@@ -50,6 +50,7 @@ public class SpielState extends BasicGameState {
 		spielWelt.focusCharakter(container.getWidth(), container.getHeight());
 		spielWelt.checkTriggers();
 		spielWelt.playLoopedSounds();
+		spielWelt.updateGegner();
 	}
 
 	@Override

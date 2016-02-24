@@ -19,7 +19,7 @@ public class Kontrolle extends StateBasedGame{
 	public void spielErstellen(){
 		try {
 			spiel = new AppGameContainer(new Kontrolle("Test"));
-			spiel.setDisplayMode(1000, 800, false);//Breite,Hoehe,Fullscreen
+			spiel.setDisplayMode(1920*3/5, 1080*3/5, false);//Breite,Hoehe,Fullscreen
 			spiel.setTargetFrameRate(60);
 			spiel.start();
 			

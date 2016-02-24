@@ -87,6 +87,7 @@ public class Dialogfenster {
 					counter++;
 				}
 				else{
+					counter = 0;
 					this.cancel();
 					timer.purge();
 					
@@ -97,6 +98,7 @@ public class Dialogfenster {
 		
 
 	}
+	
 	
 	
 

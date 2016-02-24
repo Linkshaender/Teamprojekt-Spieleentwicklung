@@ -13,6 +13,8 @@ public class Kampfsystem {
 
 	private int waffenschaden;
 	private int maxKampfdistanz = 50;
+	private int gegnerAnzahl;
+	private int gegnerLeben;
 	private float charakterX;
 	private float charakterY;
 	private float gegnerX;
@@ -20,15 +22,13 @@ public class Kampfsystem {
 	private float abstandX;
 	private float abstandY;
 	private double abstandXY;
-	private int gegnerAnzahl;
-	private int gegnerLeben;
 	private ArrayList<Gegner> gegner;
 	private Spielwelt spielwelt;
 	private Gegner ausgewaehlterGegner;
 
 
 
-
+/**Es wird ein Angriffsversuch gestartet. Übergeben wird der Waffenschaden des Spielers, seine x und y Position so wie die Spielwelt.**/
 	public void gegnerAngreifen(int gegebenerWaffenschaden, float gegebenesX, float gegebenesY, Spielwelt spielwelt){
 
 		waffenschaden = gegebenerWaffenschaden;
@@ -40,52 +40,52 @@ public class Kampfsystem {
 		gegner = spielwelt.getGegner();
 
 
-		gegnerAnzahl = gegner.size();
-		
-		double[] abstand = new double[gegnerAnzahl];
+		gegnerAnzahl = gegner.size(); 
+
+		double[] abstand = new double[gegnerAnzahl]; //Array zum speichern der Abstände der Gegner zum Spieler
 		while(i < gegnerAnzahl){
-			
+
 			ausgewaehlterGegner = gegner.get(i);
 			gegnerY = ausgewaehlterGegner.getGegnerY();
 			gegnerX = ausgewaehlterGegner.getGegnerX();
 			abstandBerechnen();
 			abstand[i] = abstandXY;
-			
+
 			i++;
 		}
-		
-		Arrays.sort(abstand); 
-        for (int n = 0; n < abstand.length; n++) { 
-            
-        	if(abstand[n] < maxKampfdistanz){
-        		i = 0;
-        		
-        		while(i < gegnerAnzahl){
-        		
-        		if(abstand[n] == abstand[i]){
-        			
-        			ausgewaehlterGegner = gegner.get(i);
-        			gegnerLeben = ausgewaehlterGegner.getGegnerLeben();
-        			gegnerLeben = gegnerLeben - waffenschaden;
-        			ausgewaehlterGegner.setLeben(gegnerLeben);
-        			if(gegnerLeben <= 0){
-        				gegner.remove(i);
-        			}
-        			System.out.println("GegnerLeben:"+" "+gegnerLeben);
-        			
-        			
-        			
-        		}i++;
-        		
-        	}
-        } 
-	} 
-	}
 
+		Arrays.sort(abstand); 								//Sortieren der im Array gespeicherten Abstände nach Größe
+		for (int n = 0; n < abstand.length; n++) { 
+
+			if(abstand[n] < maxKampfdistanz){				//Prüfen ob Gegner in Reichweite ist
+				i = 0;
+
+				while(i < gegnerAnzahl){
+
+					if(abstand[n] == abstand[i]){			//Kleinster Abstand wird wieder dem passenden Gegner zugeordnet
+
+						ausgewaehlterGegner = gegner.get(i);
+						gegnerLeben = ausgewaehlterGegner.getGegnerLeben();
+						gegnerLeben = gegnerLeben - waffenschaden;
+						ausgewaehlterGegner.setLeben(gegnerLeben);
+						if(gegnerLeben <= 0){						//=Tot
+							gegner.remove(i);
+						}
+						System.out.println("GegnerLeben:"+" "+gegnerLeben);
+
+
+
+					}i++;
+
+				}
+			} 
+		} 
+	}
+/**Berechnet aus X und Y werten den Abstand zwischen Spieler und momentan ausgewählten Gegner.**/
 	private void abstandBerechnen(){
 		abstandX = charakterX - gegnerX;
 		abstandY = charakterY - gegnerY;
-		abstandXY = Math.sqrt(abstandX*abstandX+abstandY*abstandY);
+		abstandXY = Math.sqrt(abstandX*abstandX+abstandY*abstandY); //Berechnen des Abstandes mithilfe von Pythagoras
 
 	}
 

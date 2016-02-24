@@ -33,7 +33,7 @@ public class Charakter {
 	private int maxAngriffsdistanzX = 100;
 	private int maxAngriffsdistanzY = 100;
 	private int waffenStaminaverbrauch = 10; //Test für Waffenstaminaverbrauch
-	private int waffenSchaden = 15; //Test für Waffenschaden
+	private int waffenSchaden = 12; //Test für Waffenschaden
 	private int gegnerLeben = 650; //Test für Gegnerleben
 	private int stamina = 100;// aktuelle Stamina
 	private int maxStamina = 100; // maximale Stamina für den Charakter
@@ -262,7 +262,10 @@ public class Charakter {
 
 		if(stamina > 0){
 			stamina = stamina - waffenStaminaverbrauch; //Stamina Abzug bei Angriff
-			
+			if(stamina < 0){
+				stamina = 0;
+			}
+
 			kampfsystem.gegnerAngreifen(waffenSchaden,x,y,spielwelt);
 
 
@@ -270,7 +273,7 @@ public class Charakter {
 	}
 
 
-	
+
 
 	public void starteStaminaTimer(){
 

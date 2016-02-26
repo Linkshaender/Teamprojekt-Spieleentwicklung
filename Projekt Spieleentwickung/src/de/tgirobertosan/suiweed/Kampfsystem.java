@@ -71,8 +71,7 @@ public class Kampfsystem {
 						ausgewaehlterGegner.setLeben(gegnerLeben);
 						if(gegnerLeben <= 0){						//=Tot
 							gegner.remove(i);
-							gegnerAnzahl--;
-							i--;
+							break;
 						}
 						System.out.println("GegnerLeben:"+" "+gegnerLeben);
 

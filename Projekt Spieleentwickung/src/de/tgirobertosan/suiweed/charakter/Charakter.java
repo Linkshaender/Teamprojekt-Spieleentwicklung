@@ -260,17 +260,21 @@ public class Charakter {
 
 	public void attack() {
 
-		if(timerLaeuft == false){
-
-			starteStaminaTimer();
-			timerLaeuft = true;
-		}
+		
 
 		if(stamina > 0){
 			stamina = stamina - waffenStaminaverbrauch; //Stamina Abzug bei Angriff
+			
+			if(timerLaeuft == false){
+
+				starteStaminaTimer();
+				timerLaeuft = true;
+			}
+			
 			if(stamina < 0){
 				stamina = 0;
 			}
+			
 
 			kampfsystem.gegnerAngreifen(waffenSchaden,x,y,spielwelt);
 
@@ -283,14 +287,25 @@ public class Charakter {
 
 	public void starteStaminaTimer(){
 
-		timer.scheduleAtFixedRate(new TimerTask() { //Timer für die Staminaregeneration
+		timer.scheduleAtFixedRate(new TimerTask()   { //Timer für die Staminaregeneration
 			@Override
 			public void run() {
 				if(stamina < maxStamina){
 					stamina = stamina + 1;
 					System.out.println("Stamina:"+" "+stamina);
+					
 				}
+//				}else{
+//					timer.cancel();
+//					timer.purge();
+//					timerLaeuft = false;
+//					System.out.println("ende");
+//				}
+				
 			}
+			
+				
+			
 		}, 1000, 1000);
 
 	}

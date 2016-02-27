@@ -44,12 +44,13 @@ public class MenuState extends BasicGameState{
 
 	    //hintergrundmusik = new Sound("res/gui/audio/hintergrundmusik.ogg");
 
-		//click = new Sound("res/gui/audio/klick.wav");
+		//click = new Sound("res/gui/audio/husten_6.ogg");
 
 
 		mouseOverArea.add(0,new MouseOverArea(container, new Image("res/gui/images/start.png"), new Rectangle(xButton, 100, breiteButton, hoeheButton)));
 		mouseOverArea.get(0).setMouseOverImage(new Image("res/gui/images/startHover.png"));
 		mouseOverArea.get(0).setMouseDownImage(new Image("res/gui/images/startPressed.png"));
+		//mouseOverArea.get(0).setMouseDownSound(click);
 
 
 		mouseOverArea.add(1,new MouseOverArea(container, new Image("res/gui/images/ende.png"), new Rectangle(xButton, 200, breiteButton, hoeheButton)));

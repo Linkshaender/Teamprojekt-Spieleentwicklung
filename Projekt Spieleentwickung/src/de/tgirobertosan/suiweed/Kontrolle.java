@@ -10,6 +10,9 @@ import de.tgirobertosan.suiweed.gui.MenuState;
 public class Kontrolle extends StateBasedGame{
 	
 	private AppGameContainer spiel = null;
+	
+	private int breite = 1920*3/5;
+	private int hoehe = 1080*3/5;
 
 	public Kontrolle(String name) {
 		super(name);
@@ -18,8 +21,8 @@ public class Kontrolle extends StateBasedGame{
 	
 	public void spielErstellen(){
 		try {
-			spiel = new AppGameContainer(new Kontrolle("Test"));
-			spiel.setDisplayMode(1920*3/5, 1080*3/5, false);//Breite,Hoehe,Fullscreen
+			spiel = new AppGameContainer(this);
+			spiel.setDisplayMode(breite, hoehe, false);//Breite,Hoehe,Fullscreen
 			spiel.setTargetFrameRate(60);
 			spiel.start();
 			

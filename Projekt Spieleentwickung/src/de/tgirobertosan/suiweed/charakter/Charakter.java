@@ -62,24 +62,30 @@ public class Charakter {
 	}
 
 	public Charakter(String name) {
-		this(name, 0, 0, null);
+		this(name, 0, 0, null, null);
 	}
 
-	public Charakter(String name, float x, float y, Spielwelt spielwelt) {
+	public Charakter(String name, float x, float y, Spielwelt spielwelt, Kampfsystem kampfsystem) {
 		this.name = name;
 		this.x = x;
 		this.y = y;
 		this.spielwelt = spielwelt;
+		this.kampfsystem = kampfsystem;
 	}
 
-	public void init(GameContainer container) throws SlickException, IOException{
+	public void init(GameContainer container) throws SlickException{
 
 		laufSprite = new SpriteSheet("res/character/sprites/lauf.png", 141, 192);
 		this.collisionShape = new Circle(x+collisionXOffset, y+collisionYOffset, breite/4);
 		initialisiereAnimation();
 		inventar.init(container);
 
-		dialogfenster = new Dialogfenster(container, 1);
+		try {
+			dialogfenster = new Dialogfenster(container, 1);
+		} catch (IOException e) {
+			System.out.println("Text für Dialogfenster konnte nicht geladen werden!");
+			e.printStackTrace();
+		}
 		//dialogfenster.aktualisiereDialogfenster(1);
 	}
 
@@ -297,6 +303,14 @@ public class Charakter {
 
 		kampfsystem = gegebenesKampfsystem;
 
+	}
+
+	public int getBreite() {
+		return breite;
+	}
+
+	public int getHoehe() {
+		return hoehe;
 	}
 
 }

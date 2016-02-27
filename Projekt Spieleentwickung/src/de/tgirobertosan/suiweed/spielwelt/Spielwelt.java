@@ -1,4 +1,5 @@
 package de.tgirobertosan.suiweed.spielwelt;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -34,8 +35,6 @@ public class Spielwelt extends TiledMapPlus {
 
 	private String name;
 	
-	/**Der Charakter, falls er sich auf dieser Map befindet**/
-	private Charakter charakter;
 	private SpielState spielState;
 	
 	private int absoluteX = 0;
@@ -43,24 +42,27 @@ public class Spielwelt extends TiledMapPlus {
 	
 	private int transX = 0;
 	private int transY = 0;
+	private int xOffset, yOffset;
 	private int mapWidth;
 	private int mapHeight;
 	private float maxDistanceQuadriert = 100000;
 	
-
+	private boolean checkInitTriggers = true;
+	private HashSet<SoundOnSpielwelt> loopedSounds = new HashSet<SoundOnSpielwelt>();
+	
 	private ArrayList<Shape> collisionObjects = new ArrayList<Shape>();
 	private ArrayList<Trigger> interactionTriggers = new ArrayList<Trigger>();
 	private ArrayList<Trigger> locationTriggers = new ArrayList<Trigger>();
 	private ArrayList<Trigger> initTriggers = new ArrayList<Trigger>();
-	
-	private ArrayList<Gegner> gegner = new ArrayList<Gegner>();
 
-	private boolean checkInitTriggers = true;
-	private HashSet<SoundOnSpielwelt> loopedSounds = new HashSet<SoundOnSpielwelt>();
+	/**Der Charakter, falls er sich auf dieser Map befindet**/
+	private Charakter charakter;
+	/**Alle Gegner auf dieser Map**/
+	private ArrayList<Gegner> gegner = new ArrayList<Gegner>();
+	private Kampfsystem kampfsystem;
 	
 	//Testsound
 	private SoundOnSpielwelt testSound = new SoundOnSpielwelt("res/spielwelt/audio/kebab.ogg", -1, -1, 1);
-	private Kampfsystem kampfsystem = new Kampfsystem();
 
 	public Spielwelt(String path) throws SlickException {
 		super(path);
@@ -71,11 +73,15 @@ public class Spielwelt extends TiledMapPlus {
 		
 	}
 	
-	public void init(SpielState spielState) throws SlickException {
+	public void init(SpielState spielState, GameContainer container) throws SlickException {
 		this.spielState = spielState;
-		addObjects();
+		this.kampfsystem = new Kampfsystem();
+		addObjects(container);
 		addTileCollisions();
-		charakter.gibKampfsystem(kampfsystem);
+		if(container.getWidth() > mapWidth)
+			xOffset = (container.getWidth()-mapWidth)/2;
+		if(container.getHeight() > mapHeight)
+			yOffset = (container.getHeight()-mapHeight)/2;
 	}
 
 	/**
@@ -99,24 +105,29 @@ public class Spielwelt extends TiledMapPlus {
 	}
 	
 	/**
-	 * @author Shockper (from http://slick.ninjacave.com/forum/viewtopic.php?t=4713)
 	 * @param screenWidth Width of the Window
 	 * @param screenHeight Height of the Window
 	 */
 	public void focusCharakter(int screenWidth, int screenHeight) {
-		if(charakter.getX()-screenWidth/2+16 < 0)
-		          transX = 0;
-		       else if(charakter.getX()+screenWidth/2+16 > mapWidth)
-		          transX = -mapWidth+screenWidth;
-		       else
-		          transX = (int)-charakter.getX()+screenWidth/2-16;
-		 
-		       if(charakter.getY()-screenHeight/2+16 < 0)
-		          transY = 0;
-		       else if(charakter.getY()+screenHeight/2+16 > mapHeight)
-		          transY = -mapHeight+screenHeight;
-		       else
-		          transY = (int)-charakter.getY()+screenHeight/2-16;
+		focusPoint(screenWidth, screenHeight, (int)charakter.getX()+charakter.getBreite()/2, (int)charakter.getY()+charakter.getHoehe()/2);
+	}
+	/**
+	 * @author Shockper (from http://slick.ninjacave.com/forum/viewtopic.php?t=4713)
+	 */
+	public void focusPoint(int screenWidth, int screenHeight, int focusX, int focusY) {
+		if(focusX-screenWidth/2 < 0)
+			transX = xOffset;
+		else if(focusX+screenWidth/2 > mapWidth)
+			transX = -mapWidth+screenWidth-xOffset;
+		else
+			transX = (int)-focusX+screenWidth/2;
+
+		if(focusY-screenHeight/2 < 0)
+			transY = yOffset;
+		else if(focusY+screenHeight/2 > mapHeight)
+			transY = -mapHeight+screenHeight-yOffset;
+		else
+			transY = (int)-focusY+screenHeight/2;
 	}
 	
 	public void playLoopedSounds() {
@@ -177,7 +188,7 @@ public class Spielwelt extends TiledMapPlus {
 			}
 	}
 	
-	private void addObjects() {
+	private void addObjects(GameContainer container) throws SlickException {
 		for(ObjectGroup objectGroup : getObjectGroups()) {
 			if(objectGroup.name.equalsIgnoreCase(collisionObjectLayerName))
 				for(GroupObject blockObject : objectGroup.getObjects()) {
@@ -186,9 +197,10 @@ public class Spielwelt extends TiledMapPlus {
 			else {
 				for(GroupObject groupObject : objectGroup.getObjects()) {
 					Trigger trigger = null;
-					System.out.println(groupObject.type);
+					System.out.println("Loading: "+groupObject.type);
 					if(groupObject.type.equalsIgnoreCase("charakter") && charakter == null) {
-						charakter = new Charakter(groupObject.name, groupObject.x, groupObject.y, this);
+						charakter = new Charakter(groupObject.name, groupObject.x, groupObject.y, this, kampfsystem);
+						charakter.init(container);
 						spielState.getInputHandler().setCharakter(charakter);
 					} else if(groupObject.type.equalsIgnoreCase("Teleport")) {
 						trigger = Teleport.getFromGroupObject(groupObject, null, spielState);
@@ -299,5 +311,13 @@ public class Spielwelt extends TiledMapPlus {
 		
 		return(gegner);
 		
+	}
+
+	public int getMapWidth() {
+		return mapWidth;
+	}
+
+	public int getMapHeight() {
+		return mapHeight;
 	}
 }

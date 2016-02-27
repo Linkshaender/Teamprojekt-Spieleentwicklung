@@ -1,7 +1,5 @@
 package de.tgirobertosan.suiweed;
 
-import java.io.IOException;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -15,27 +13,19 @@ public class SpielState extends BasicGameState {
 
 	private int id = 1;
 
+	private GameContainer container;
 	private InputHandler inputHandler;
 
 	private Spielwelt spielWelt = null;
 
 	@Override
 	public void init(GameContainer container, StateBasedGame game) throws SlickException {
-
+		this.container = container;
 		inputHandler = new InputHandler(container.getInput());
 		inputHandler.init();
 		// container.getInput().enableKeyRepeat();
 
-		spielWelt = new Spielwelt("/res/spielwelt/tilemaps/tilemap1.tmx");
-		spielWelt.init(this);
-
-		if(spielWelt.getCharakter() != null)
-			try {
-				spielWelt.getCharakter().init(container);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		changeSpielwelt(new Spielwelt("/res/spielwelt/tilemaps/tilemap1.tmx"));
 	}
 
 	@Override
@@ -45,7 +35,7 @@ public class SpielState extends BasicGameState {
 
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
-
+		this.container = container;
 		inputHandler.handleInput();
 		spielWelt.focusCharakter(container.getWidth(), container.getHeight());
 		spielWelt.checkTriggers();
@@ -61,7 +51,7 @@ public class SpielState extends BasicGameState {
 	
 	public void changeSpielwelt(Spielwelt spielwelt) {
 		try {
-			spielwelt.init(this);
+			spielwelt.init(this, container);
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}

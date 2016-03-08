@@ -7,6 +7,8 @@ import de.tgirobertosan.suiweed.charakter.Charakter;
 
 public class SoundOnSpielwelt extends Sound {
 
+	private static int meterInPixel = 32;
+	
 	private float volumeModifier;
 	private float x;
 	private float y;
@@ -18,11 +20,13 @@ public class SoundOnSpielwelt extends Sound {
 		this.volumeModifier = volumeModifier;
 	}
 	
-	public void playSoundFor(Charakter charakter, float maxDistanceQuadriert) {
-		float aQuadrat = (float) Math.pow(Math.abs(x-charakter.getX()), 2);
-		float bQuadrat = (float) Math.pow(Math.abs(y-charakter.getY()), 2);
-		float cQuadrat = aQuadrat+bQuadrat;
-		this.playAt(1, ((maxDistanceQuadriert-cQuadrat)/maxDistanceQuadriert)*volumeModifier, 0, 0, 1);
+	public void playSoundFor(Charakter charakter) {
+		float aQuadrat = (float) (x-charakter.getX())/meterInPixel*(x-charakter.getX())/meterInPixel;
+		float bQuadrat = (float) (y-charakter.getY())/meterInPixel*(y-charakter.getY())/meterInPixel;
+		float distance = (float) Math.sqrt(aQuadrat+bQuadrat);
+		if(distance<1)
+			distance = 1;
+		this.playAt(1, 1/distance*volumeModifier, 0, 0, 1);
 	}
 	
 	public void setX(float x) {

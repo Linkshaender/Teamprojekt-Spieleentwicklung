@@ -1,5 +1,4 @@
 package de.tgirobertosan.suiweed.spielwelt;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -45,7 +44,6 @@ public class Spielwelt extends TiledMapPlus {
 	private int xOffset, yOffset;
 	private int mapWidth;
 	private int mapHeight;
-	private float maxDistanceQuadriert = 100000;
 	
 	private boolean checkInitTriggers = true;
 	private HashSet<SoundOnSpielwelt> loopedSounds = new HashSet<SoundOnSpielwelt>();
@@ -69,7 +67,6 @@ public class Spielwelt extends TiledMapPlus {
 		this.name = path.substring(path.lastIndexOf("/")+1);
 		this.mapWidth = getWidth()*getTileWidth();
 		this.mapHeight = getHeight()*getTileHeight();
-		this.maxDistanceQuadriert = (float) (Math.pow(mapWidth, 2)+Math.pow(mapHeight, 2));
 		
 	}
 	
@@ -133,7 +130,7 @@ public class Spielwelt extends TiledMapPlus {
 	public void playLoopedSounds() {
 		for(SoundOnSpielwelt sound : loopedSounds) {
 			if(!sound.playing())
-				sound.playSoundFor(charakter, maxDistanceQuadriert);
+				sound.playSoundFor(charakter);
 		}
 	}
 	
@@ -256,7 +253,7 @@ public class Spielwelt extends TiledMapPlus {
 	}
 
 	public void playSoundAt(SoundOnSpielwelt sound, boolean loop) {
-		sound.playSoundFor(charakter, maxDistanceQuadriert);
+		sound.playSoundFor(charakter);
 		if(loop)
 			loopedSounds.add(sound);
 	}

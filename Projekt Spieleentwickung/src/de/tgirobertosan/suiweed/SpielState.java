@@ -25,7 +25,7 @@ public class SpielState extends BasicGameState {
 		inputHandler.init();
 		// container.getInput().enableKeyRepeat();
 
-		changeSpielwelt(new Spielwelt("/res/spielwelt/tilemaps/tilemap1.tmx"));
+		changeSpielwelt(new Spielwelt("/res/spielwelt/tilemaps/level0.tmx"));
 	}
 
 	@Override

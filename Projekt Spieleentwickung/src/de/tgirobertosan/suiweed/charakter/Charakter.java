@@ -37,6 +37,7 @@ public class Charakter {
 	private int gegnerLeben = 650; //Test für Gegnerleben
 	private int stamina = 100;// aktuelle Stamina
 	private int maxStamina = 100; // maximale Stamina für den Charakter
+	private int leben = 100;
 	private int breite = 47;
 	private int hoehe = 48;
 	private int animationsGeschw = 99;
@@ -326,6 +327,13 @@ public class Charakter {
 
 	public int getHoehe() {
 		return hoehe;
+	}
+	public int getLeben() {
+		return leben;
+	}
+
+	public void setLeben(int leben) {
+		this.leben = leben;
 	}
 
 }

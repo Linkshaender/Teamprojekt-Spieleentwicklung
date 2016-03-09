@@ -4,6 +4,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Circle;
+import org.newdawn.slick.geom.Shape;
 
 import de.tgirobertosan.suiweed.charakter.Charakter;
 
@@ -20,6 +21,12 @@ public class Gegner {
 	private boolean verfolgen;
 	private float speed;
 	private int gegnerLeben = 20;
+	private Circle sicht;
+	private double start,weiter;
+	private boolean attacke;
+	private float zufall;
+	private Shape collisionShape;
+
 	public Gegner(float x, float y){
 		this.x = x;
 		this.y = y;
@@ -27,6 +34,8 @@ public class Gegner {
 		try {
 			gegner = new Image("res/gegner/image/gegner.png");
 			sicht = new Circle(x + 20, y + 25, 150);
+			collisionShape  = new Circle(x+25, y+25, 22);
+
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,7 +44,6 @@ public class Gegner {
 		startX = x;
 	}
 
-	private Circle sicht;
 
 
 	public void render(Graphics g){
@@ -45,8 +53,12 @@ public class Gegner {
 	public void update(){
 		if(!verfolgen)
 			bewegen();
-		else 
+		else if(verfolgen && spieler != null){
 			verfolgen();
+			puefeAttacke();
+		}
+		collisionShape.setCenterX(x+20);
+		collisionShape.setCenterY(y+25);
 	}
 	private void bewegen(){
 		if(move){
@@ -62,6 +74,28 @@ public class Gegner {
 			move = true;
 		}	
 
+	}
+	private void puefeAttacke() {
+		if(spieler.getCollisionShape().intersects(collisionShape)){
+			if(!attacke){
+				start = System.currentTimeMillis();
+				attacke = true;
+				zufall = (float) (Math.random()*2+1);
+			}
+			if((weiter-start)/1000>=zufall){
+				start = System.currentTimeMillis();
+				
+				spieler.setLeben((int)(spieler.getLeben()-((Math.random()*4)+3)));
+				System.out.println(spieler.getLeben());
+				zufall = (float) (Math.random()*2+1);
+
+			}
+
+		}
+		else{
+			attacke = false;
+		}
+		weiter = System.currentTimeMillis();
 	}
 	public void verfolgen(){
 		if(x>=spieler.getX()){

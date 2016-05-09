@@ -24,7 +24,7 @@
    eJxjYKAeMGSB0PJAWg6IZaE0Mh7qwBvoBx8g9gViv2Hgn1Ew8AAAf84CZg==
   </data>
  </layer>
- <layer name="onTop" width="15" height="15" visible="0">
+ <layer name="onTop" width="15" height="15">
   <data encoding="base64" compression="zlib">
    eJxjYEAFfCwQzA+leVkQYjCMD8gRkB8MwBroRhsgtgViuyHg3lEwvAEAJM8Bxw==
   </data>

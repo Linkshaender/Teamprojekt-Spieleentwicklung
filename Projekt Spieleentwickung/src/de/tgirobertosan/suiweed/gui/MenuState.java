@@ -19,7 +19,6 @@ public class MenuState extends BasicGameState{
 	private Image hintergrundbild;
 
 	private Sound hintergrundmusik;
-	private Sound click;
 
 	private ArrayList<Button> button = new ArrayList<Button>();
 
@@ -27,24 +26,24 @@ public class MenuState extends BasicGameState{
 	@Override
 	public void init(GameContainer container, StateBasedGame game) throws SlickException {
 
-	
-		button.add(new Button(0,100, 100, 150, "start", "startHover", "startPressed"));
-		button.add(new Button(1,300, 100, 150, "ende", "endeHover", "endePressed"));
-		
+
+		button.add(new Button(0, container.getWidth() / 2 - 100/2,100, 100 , 150, "start", "startHover", "startPressed"));
+		button.add(new Button(1,container.getWidth() / 2 - 100/2, 300, 100, 150, "ende", "endeHover", "endePressed"));
+
 		for (int i = 0; i < button.size(); i++) {
 
 			button.get(i).init(container);
 
 		}
-		
+
 		hintergrundbild = new Image("res/gui/images/background.png");
 		hintergrundbild = hintergrundbild.getScaledCopy(container.getWidth(), container.getHeight() ); //breite ergibt sich aus dem Seitenverhältniss
 
-	    //hintergrundmusik = new Sound("res/gui/audio/hintergrundmusik.ogg");
+		//hintergrundmusik = new Sound("res/gui/audio/hintergrundmusik.ogg");
 
 		//click = new Sound("res/gui/audio/husten_6.ogg");
 
-		
+
 	}
 
 	@Override
@@ -72,7 +71,7 @@ public class MenuState extends BasicGameState{
 		if (button.get(1).update(container)) {
 			container.exit();
 		}
-	
+
 	}
 
 

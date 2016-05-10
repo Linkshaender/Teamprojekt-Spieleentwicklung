@@ -7,6 +7,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import de.tgirobertosan.suiweed.charakter.InputHandler;
+import de.tgirobertosan.suiweed.gui.Button;
 import de.tgirobertosan.suiweed.spielwelt.Spielwelt;
 
 public class SpielState extends BasicGameState {
@@ -18,6 +19,7 @@ public class SpielState extends BasicGameState {
 
 	private Spielwelt spielWelt = null;
 
+	private Button button;
 	@Override
 	public void init(GameContainer container, StateBasedGame game) throws SlickException {
 		this.container = container;
@@ -26,11 +28,15 @@ public class SpielState extends BasicGameState {
 		// container.getInput().enableKeyRepeat();
 
 		changeSpielwelt(new Spielwelt("/res/spielwelt/tilemaps/level0.tmx"));
+
+		button = new Button(3, container.getWidth() - 150,0, 100, 150, "zurück", "zurückHover", "zurückPressed");
+		button.init(container);
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
 		spielWelt.renderWithObjects(container, g);
+		button.render(container, g);
 	}
 
 	@Override
@@ -41,6 +47,12 @@ public class SpielState extends BasicGameState {
 		spielWelt.checkTriggers();
 		spielWelt.playLoopedSounds();
 		spielWelt.updateGegner();
+
+		if (button.update(container)) {
+			game.init(container);
+			game.enterState(0);
+
+		}
 	}
 
 	@Override
@@ -48,7 +60,7 @@ public class SpielState extends BasicGameState {
 
 		return id;
 	}
-	
+
 	public void changeSpielwelt(Spielwelt spielwelt) {
 		try {
 			spielwelt.init(this, container);
@@ -57,7 +69,7 @@ public class SpielState extends BasicGameState {
 		}
 		this.spielWelt = spielwelt;
 	}
-	
+
 	public InputHandler getInputHandler() {
 		return inputHandler;
 	}

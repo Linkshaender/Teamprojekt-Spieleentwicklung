@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="129">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="133">
  <tileset firstgid="1" name="street" tilewidth="32" tileheight="32" tilecount="475" columns="25">
   <image source="../tilesets/street.png" width="800" height="608"/>
  </tileset>
@@ -260,8 +260,14 @@
    eJzt06ENACAMAMEqJkKw/2Q4BEkbEgSIuwnefAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALd6e10A//IH5PY/hl9g8Qec8wfk/AE5fwBAbQIrzgIf
   </data>
  </layer>
- <objectgroup name="object" visible="0">
+ <objectgroup name="object">
   <object id="9" name="Roberto" type="Charakter" x="1368" y="1640" width="48" height="48">
+   <ellipse/>
+  </object>
+  <object id="131" name="Huan" type="Gegner" x="1445" y="994" width="44" height="46">
+   <ellipse/>
+  </object>
+  <object id="132" name="LingLing" type="Gegner" x="1779" y="1000" width="49" height="46">
    <ellipse/>
   </object>
  </objectgroup>

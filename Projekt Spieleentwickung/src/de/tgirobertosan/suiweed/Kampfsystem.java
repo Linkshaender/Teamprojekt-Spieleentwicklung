@@ -67,7 +67,7 @@ public class Kampfsystem {
 
 						ausgewaehlterGegner = gegner.get(i);
 						gegnerLeben = ausgewaehlterGegner.getGegnerLeben();
-						gegnerLeben = gegnerLeben - waffenschaden;
+						gegnerLeben = (int) (gegnerLeben - (waffenschaden + bonusschaden()));
 						ausgewaehlterGegner.setLeben(gegnerLeben);
 						if(gegnerLeben <= 0){						//=Tot
 							gegner.remove(i);
@@ -90,6 +90,11 @@ public class Kampfsystem {
 		abstandY = charakterY - gegnerY;
 		abstandXY = Math.sqrt(abstandX*abstandX+abstandY*abstandY); //Berechnen des Abstandes mithilfe von Pythagoras
 
+	}
+	
+	private double bonusschaden(){
+		
+		return Math.random() * waffenschaden;
 	}
 
 }

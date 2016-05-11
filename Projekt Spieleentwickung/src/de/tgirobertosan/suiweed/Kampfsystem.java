@@ -8,7 +8,7 @@ import de.tgirobertosan.suiweed.spielwelt.Spielwelt;
 public class Kampfsystem {
 
 	private int waffenschaden;
-	private int maxKampfdistanz = 50;
+	private int maxKampfdistanz;
 	private int gegnerAnzahl;
 	private int gegnerLeben;
 	private float charakterX;
@@ -25,12 +25,13 @@ public class Kampfsystem {
 
 
 	/**Es wird ein Angriffsversuch gestartet. Übergeben wird der Waffenschaden des Spielers, seine x und y Position so wie die Spielwelt.**/
-	public void gegnerAngreifen(int gegebenerWaffenschaden, float gegebenesX, float gegebenesY, Spielwelt spielwelt){
+	public void gegnerAngreifen(int gegebenerWaffenschaden, float gegebenesX, float gegebenesY, int maxKampfdistanz, Spielwelt spielwelt){
 
 		waffenschaden = gegebenerWaffenschaden;
 		charakterX = gegebenesX;
 		charakterY = gegebenesY;
 		this.spielwelt = spielwelt;
+		this.maxKampfdistanz = maxKampfdistanz;
 		int i = 0;
 
 		gegner = spielwelt.getGegner();

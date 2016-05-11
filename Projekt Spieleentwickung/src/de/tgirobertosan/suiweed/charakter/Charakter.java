@@ -29,6 +29,7 @@ public class Charakter {
 	private float y = 0;
 	private int waffenStaminaverbrauch = 10; //Test für Waffenstaminaverbrauch
 	private int waffenSchaden = 12; //Test für Waffenschaden
+	private int maxKampfdistanz = 50; // Test, soll später von Waffe übergeben werden
 	private int stamina = 100;// aktuelle Stamina
 	private int maxStamina = 100; // maximale Stamina für den Charakter
 	private int leben = 100;
@@ -269,7 +270,7 @@ public class Charakter {
 			
 			
 
-			kampfsystem.gegnerAngreifen(waffenSchaden,x,y,spielwelt);
+			kampfsystem.gegnerAngreifen(waffenSchaden,x,y, maxKampfdistanz, spielwelt);
 
 
 		}

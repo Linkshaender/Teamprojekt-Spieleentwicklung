@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="133">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="134">
  <tileset firstgid="1" name="street" tilewidth="32" tileheight="32" tilecount="475" columns="25">
   <image source="../tilesets/street.png" width="800" height="608"/>
  </tileset>
@@ -22,7 +22,7 @@
  </layer>
  <layer name="onGround" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="top" width="100" height="100">
@@ -268,6 +268,14 @@
    <ellipse/>
   </object>
   <object id="132" name="LingLing" type="Gegner" x="1779" y="1000" width="49" height="46">
+   <ellipse/>
+  </object>
+  <object id="133" name="Dialogzeile 1" type="Dialogzeile" x="1536" y="1535" width="97" height="85">
+   <properties>
+    <property name="Line" value="5"/>
+    <property name="Range" value="32"/>
+    <property name="TriggerEvent" value="INTERACT"/>
+   </properties>
    <ellipse/>
   </object>
  </objectgroup>

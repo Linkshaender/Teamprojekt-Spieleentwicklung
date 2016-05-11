@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 
+import org.newdawn.slick.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -235,7 +236,7 @@ public class Spielwelt extends TiledMapPlus {
 	public void updateGegner(){
 		for(Gegner gegner: gegner){
 			gegner.update();
-			gegner.schaueNachSpieler(charakter);
+			gegner.schaueNachSpieler(getCharakter());
 		}
 		//Die Methode sortiert die Gegner in der ArrayList nach der Y-Position
 		Collections.sort(gegner, new Comparator<Gegner>() {
@@ -246,6 +247,7 @@ public class Spielwelt extends TiledMapPlus {
 				return Float.compare(o1.getY(), o2.getY());
 			}
 		});
+		
 	}
 	
 	public void playSoundAt(SoundOnSpielwelt sound) {

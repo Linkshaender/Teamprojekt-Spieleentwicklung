@@ -20,7 +20,7 @@ public class Gegner {
 	private boolean move;
 	private boolean verfolgen;
 	private float speed;
-	private int gegnerLeben = 20;
+	private int gegnerLeben;
 	private Circle sicht;
 	private double start,weiter;
 	private boolean attacke;
@@ -31,6 +31,7 @@ public class Gegner {
 		this.x = x;
 		this.y = y;
 		speed = (float) (Math.random()+0.1);
+		gegnerLeben = 20;
 		try {
 			gegner = new Image("res/gegner/image/gegner.png");
 			sicht = new Circle(x + 20, y + 25, 150);
@@ -86,7 +87,7 @@ public class Gegner {
 				start = System.currentTimeMillis();
 				
 				spieler.setLeben((int)(spieler.getLeben()-((Math.random()*4)+3)));
-				System.out.println(spieler.getLeben());
+				System.out.println("Spielerleben: " +spieler.getLeben());
 				zufall = (float) (Math.random()*2+1);
 
 			}

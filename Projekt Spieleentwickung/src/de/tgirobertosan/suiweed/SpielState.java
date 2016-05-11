@@ -53,6 +53,10 @@ public class SpielState extends BasicGameState {
 			game.enterState(0);
 
 		}
+		if(spielWelt.getCharakter().getLeben()<=0){
+			game.init(container);
+			game.enterState(0);
+		}
 	}
 
 	@Override

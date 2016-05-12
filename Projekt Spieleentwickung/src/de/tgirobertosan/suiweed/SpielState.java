@@ -1,13 +1,17 @@
 package de.tgirobertosan.suiweed;
 
+import java.io.IOException;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import de.tgirobertosan.suiweed.charakter.InputHandler;
 import de.tgirobertosan.suiweed.gui.Button;
+import de.tgirobertosan.suiweed.items.Gegenstaende;
 import de.tgirobertosan.suiweed.spielwelt.Spielwelt;
 
 public class SpielState extends BasicGameState {
@@ -16,7 +20,6 @@ public class SpielState extends BasicGameState {
 
 	private GameContainer container;
 	private InputHandler inputHandler;
-
 	private Spielwelt spielWelt = null;
 
 	private Button button;
@@ -26,9 +29,7 @@ public class SpielState extends BasicGameState {
 		inputHandler = new InputHandler(container.getInput());
 		inputHandler.init();
 		// container.getInput().enableKeyRepeat();
-
 		changeSpielwelt(new Spielwelt("/res/spielwelt/tilemaps/level0.tmx"));
-
 		button = new Button(3, container.getWidth() - 150,0, 100, 150, "zurück", "zurückHover", "zurückPressed");
 		button.init(container);
 	}
@@ -37,6 +38,7 @@ public class SpielState extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
 		spielWelt.renderWithObjects(container, g);
 		button.render(container, g);
+		
 	}
 
 	@Override

@@ -1,4 +1,6 @@
 package de.tgirobertosan.suiweed.charakter;
+import java.util.ArrayList;
+
 import org.newdawn.slick.Input;
 import org.newdawn.slick.command.BasicCommand;
 import org.newdawn.slick.command.Command;
@@ -9,6 +11,8 @@ import org.newdawn.slick.command.InputProviderListener;
 import org.newdawn.slick.command.KeyControl;
 import org.newdawn.slick.command.MouseButtonControl;
 
+import de.tgirobertosan.suiweed.items.Gegenstaende;
+import de.tgirobertosan.suiweed.items.Gegenstand;
 import de.tgirobertosan.suiweed.spielwelt.trigger.Trigger;
 
 
@@ -29,7 +33,7 @@ public class InputHandler implements InputProviderListener {
 
 	
 	private Charakter charakter;
-	
+	private Gegenstaende gegenstaende;
 	
 	public InputHandler(Input input) {
 		this.input = input;
@@ -69,6 +73,7 @@ public class InputHandler implements InputProviderListener {
 	
 	
 	public void handleInput() {
+		
 		if(charakter == null)
 			return;
 		handleMovement();
@@ -87,9 +92,13 @@ public class InputHandler implements InputProviderListener {
 	}
 	
 	private void handleInteractions() {
-		if(provider.isCommandControlPressed(interact))
-			for(Trigger trigger : charakter.getSpielwelt().getInteractionTriggers())
+		
+		if(provider.isCommandControlPressed(interact)){
+			checkCollision();
+			for(Trigger trigger : charakter.getSpielwelt().getInteractionTriggers()){
 				trigger.checkAndFire(charakter);
+		  }
+		}
 	}
 	
 	private void handleMovement() {
@@ -106,9 +115,27 @@ public class InputHandler implements InputProviderListener {
 		charakter.move(xDir, yDir);
 	}
 	
+	
+	private void checkCollision(){
+		
+		for(Gegenstand gegenstand: this.gegenstaende.getSchwerter()){
+			if(gegenstand.getColissionShape().contains(charakter.getCollisionShape())||
+					charakter.getCollisionShape().intersects(gegenstand.getColissionShape())){
+				charakter.takeItem(gegenstand);
+				gegenstaende.deleteItem(gegenstand);
+				break;
+			}
+		}
+	}
+	
 
 	public void setCharakter(Charakter charakter) {
 		this.charakter = charakter;
+	}
+	
+	public void setGegenstaende(Gegenstaende gegenstaende){
+		this.gegenstaende = gegenstaende;
+			
 	}
 	
 	public Charakter getCharakter() {

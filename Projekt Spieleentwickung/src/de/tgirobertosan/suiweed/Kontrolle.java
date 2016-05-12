@@ -1,11 +1,14 @@
 package de.tgirobertosan.suiweed;
 
 
+import java.io.IOException;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 import de.tgirobertosan.suiweed.gui.MenuState;
+import de.tgirobertosan.suiweed.items.Gegenstaende;
 
 public class Kontrolle extends StateBasedGame{
 	
@@ -25,7 +28,6 @@ public class Kontrolle extends StateBasedGame{
 			spiel.setDisplayMode(breite, hoehe, false);//Breite,Hoehe,Fullscreen
 			spiel.setTargetFrameRate(60);
 			spiel.start();
-			
 
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block

@@ -1,4 +1,5 @@
 package de.tgirobertosan.suiweed.charakter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.newdawn.slick.Color;
@@ -12,6 +13,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
+import de.tgirobertosan.suiweed.items.Gegenstaende;
+import de.tgirobertosan.suiweed.items.Gegenstand;
 import de.tgirobertosan.suiweed.items.Waffe;
 
 
@@ -30,21 +33,23 @@ public class Inventar implements KeyListener, MouseListener {
 	private Image inventar;
 	private boolean sichtbarkeit = false; //true = sichtbar, false = unsichtbar
 	private Shape inventarleiste;
-	private ArrayList<Shape> slots = new ArrayList<Shape>();
+	private ArrayList<Slot> slots = new ArrayList<>();
 	private byte slotSpaltenAnzahl = 8;
 	private byte slotZeilenAnzahl  = 4;
-	private Waffe waffe; //WAFFE IST NUR TEST ZWECK, INVENTAR SOLLTE GEGENSTAND HABEN!
 	private boolean waffeImInventar = false;
 	private Input input;
+	private ArrayList<Gegenstand> gegenstand;
 
 	//Methoden
 
 	public void init(GameContainer container) throws SlickException{
+
+		gegenstand = new ArrayList<>();
 		inventar = new Image("res/character/images/Inventar.png");
 		inventarleiste = new Rectangle(x, y, 443, 175);
 
 		for(byte spalte = 0, zeile = 0; spalte < slotSpaltenAnzahl; spalte++){
-			slots.add(new Rectangle((spalte *slotBreite) + slotX + (spalte * slotRandBreite), (zeile*slotHoehe) + slotY+ (zeile * slotRandHoehe), slotBreite, slotHoehe));
+			slots.add(new Slot(new Rectangle((spalte *slotBreite) + slotX + (spalte * slotRandBreite), (zeile*slotHoehe) + slotY+ (zeile * slotRandHoehe), slotBreite, slotHoehe)));
 
 			if(zeile  < slotZeilenAnzahl -1 && spalte == slotSpaltenAnzahl - 1){
 				zeile++;
@@ -52,7 +57,7 @@ public class Inventar implements KeyListener, MouseListener {
 			}
 		}
 
-		waffe = new Waffe();
+
 		input = container.getInput();
 		input.addKeyListener(this);
 		input.addMouseListener(this);
@@ -67,8 +72,8 @@ public class Inventar implements KeyListener, MouseListener {
 
 	public void render(GameContainer arg0, Graphics g) throws SlickException {
 		zeichne(x, y);
-		g.setColor(Color.cyan);
-		g.draw(inventarleiste);
+		//	g.setColor(Color.cyan);
+		//	g.draw(inventarleiste);
 		for(int i = 0; i < slots.size();i++){
 			g.draw(slots.get(i));
 		}
@@ -79,11 +84,33 @@ public class Inventar implements KeyListener, MouseListener {
 
 		if(sichtbarkeit){
 			inventar.draw(x,y);
-			if(waffeImInventar){ //Testzweck
-				waffe.getWaffe().drawCentered(slots.get(0).getCenterX(), slots.get(0).getCenterY());
+			//if(waffeImInventar){ //Testzweck
+			//waffe.getWaffe().drawCentered(slots.get(0).getCenterX(), slots.get(0).getCenterY());
+			//}
+			for(int index = 0; index < slots.size(); index++){
+				if(slots.get(index).getBelegt()){
+					slots.get(index).getGegenstand().getPicture().draw(slots.get(index).getX(),slots.get(index).getY());
+				}
 			}
 		}
 	}
+
+
+	public void stow(Gegenstand gegenstand){
+
+		this.gegenstand.add(gegenstand);
+
+		for(int index = 0; index < slots.size(); index++){
+			if(!slots.get(index).getBelegt()){
+				slots.get(index).takeItem(gegenstand);
+				break;
+			}
+		}
+
+	}
+
+
+
 
 	@Override
 	public void inputEnded() {
@@ -116,10 +143,6 @@ public class Inventar implements KeyListener, MouseListener {
 		case(Input.KEY_I): sichtbarkeit = !sichtbarkeit ; break;
 		default:break;
 		}
-
-		if(Input.KEY_E == arg0 && sichtbarkeit){
-			waffeImInventar = !waffeImInventar;
-		}
 	}
 
 	@Override
@@ -145,7 +168,7 @@ public class Inventar implements KeyListener, MouseListener {
 				inventarleiste.setLocation(x, y);
 
 				for(byte spalte = 0, zeile = 0, i = 0; i < slots.size(); spalte++, i++){
-
+					slots.get(i).setPosition((spalte *slotBreite) + slotX + (spalte*slotRandBreite),(zeile*slotHoehe) + slotY + (zeile * slotRandHoehe));
 					slots.get(i).setLocation((spalte *slotBreite) + slotX + (spalte*slotRandBreite), (zeile*slotHoehe) + slotY + (zeile * slotRandHoehe));
 
 					if(zeile  < slotZeilenAnzahl -1 && spalte == slotSpaltenAnzahl - 1){

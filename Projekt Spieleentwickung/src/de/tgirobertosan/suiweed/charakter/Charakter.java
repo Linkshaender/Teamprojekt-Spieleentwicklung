@@ -16,6 +16,7 @@ import org.newdawn.slick.geom.Shape;
 
 import de.tgirobertosan.suiweed.Kampfsystem;
 import de.tgirobertosan.suiweed.gui.Dialogfenster;
+import de.tgirobertosan.suiweed.items.Gegenstand;
 import de.tgirobertosan.suiweed.spielwelt.Location;
 import de.tgirobertosan.suiweed.spielwelt.Spielwelt;
 
@@ -42,7 +43,7 @@ public class Charakter {
 	private ArrayList<Animation> bewegungsAnimation = new ArrayList<Animation>();
 	private SpriteSheet laufSprite;
 	private Inventar inventar = new Inventar();
-
+	
 	private Spielwelt spielwelt;
 	private Shape collisionShape;
 	private Kampfsystem kampfsystem;
@@ -93,7 +94,6 @@ public class Charakter {
 
 	public void renderCharakter() {
 		zeichne();
-
 	}
 
 	public void renderInventar(GameContainer container, Graphics g) throws SlickException {
@@ -161,7 +161,6 @@ public class Charakter {
 
 		g.setColor(Color.red);
 		g.drawString(name, x + 6 ,y - 16 );
-
 	}
 
 
@@ -303,6 +302,14 @@ public class Charakter {
 		}, 1000, 1000);
 
 	}
+	
+	
+	public void takeItem(Gegenstand gegenstand){
+		inventar.stow(gegenstand);
+	}
+	
+	
+	
 
 	public Dialogfenster getDialogfenster() {
 		return this.dialogfenster;
